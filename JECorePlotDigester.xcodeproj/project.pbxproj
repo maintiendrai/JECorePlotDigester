@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		082BEB591117F363F4479CA7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C5683C9DCDE27D015CF49F /* libPods.a */; };
+		841518C41B7B1B36009AF230 /* PiNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518BF1B7B1B36009AF230 /* PiNumberFormatter.m */; };
+		841518C51B7B1B36009AF230 /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518C11B7B1B36009AF230 /* PlotGallery.m */; };
+		841518C61B7B1B36009AF230 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518C31B7B1B36009AF230 /* PlotItem.m */; };
 		841BC10B1B71B6BE00F256AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC10A1B71B6BE00F256AF /* main.m */; };
 		841BC10E1B71B6BE00F256AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC10D1B71B6BE00F256AF /* AppDelegate.m */; };
 		841BC1111B71B6BE00F256AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1101B71B6BE00F256AF /* ViewController.m */; };
@@ -22,9 +25,6 @@
 		841BC13D1B71BEA400F256AF /* CurvedScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC13C1B71BEA400F256AF /* CurvedScatterPlot.m */; };
 		841BC1591B733A1700F256AF /* JECurvedPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1581B733A1700F256AF /* JECurvedPlotView.m */; };
 		841BC15F1B73446200F256AF /* JEDonutPiePlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC15E1B73446200F256AF /* JEDonutPiePlotView.m */; };
-		84AD28331B7AEC9A00634822 /* PiNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD282E1B7AEC9A00634822 /* PiNumberFormatter.m */; };
-		84AD28341B7AEC9A00634822 /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD28301B7AEC9A00634822 /* PlotGallery.m */; };
-		84AD28351B7AEC9A00634822 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AD28321B7AEC9A00634822 /* PlotItem.m */; };
 		84F9F4F61B74461900EACB1E /* JESimplePieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9F4F51B74461900EACB1E /* JESimplePieChart.m */; };
 		84F9F4F91B7483E100EACB1E /* JEBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9F4F81B7483E100EACB1E /* JEBarChart.m */; };
 		84F9F4FB1B748ECF00EACB1E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F9F4FA1B748ECF00EACB1E /* CoreTelephony.framework */; };
@@ -42,6 +42,12 @@
 
 /* Begin PBXFileReference section */
 		76C5683C9DCDE27D015CF49F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		841518BE1B7B1B36009AF230 /* PiNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiNumberFormatter.h; sourceTree = "<group>"; };
+		841518BF1B7B1B36009AF230 /* PiNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiNumberFormatter.m; sourceTree = "<group>"; };
+		841518C01B7B1B36009AF230 /* PlotGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotGallery.h; sourceTree = "<group>"; };
+		841518C11B7B1B36009AF230 /* PlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotGallery.m; sourceTree = "<group>"; };
+		841518C21B7B1B36009AF230 /* PlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotItem.h; sourceTree = "<group>"; };
+		841518C31B7B1B36009AF230 /* PlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotItem.m; sourceTree = "<group>"; };
 		841BC1051B71B6BD00F256AF /* JECorePlotDigester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JECorePlotDigester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841BC1091B71B6BD00F256AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841BC10A1B71B6BE00F256AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,12 +76,6 @@
 		841BC1581B733A1700F256AF /* JECurvedPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JECurvedPlotView.m; sourceTree = "<group>"; };
 		841BC15D1B73446200F256AF /* JEDonutPiePlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEDonutPiePlotView.h; sourceTree = "<group>"; };
 		841BC15E1B73446200F256AF /* JEDonutPiePlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEDonutPiePlotView.m; sourceTree = "<group>"; };
-		84AD282D1B7AEC9A00634822 /* PiNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiNumberFormatter.h; sourceTree = "<group>"; };
-		84AD282E1B7AEC9A00634822 /* PiNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiNumberFormatter.m; sourceTree = "<group>"; };
-		84AD282F1B7AEC9A00634822 /* PlotGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotGallery.h; sourceTree = "<group>"; };
-		84AD28301B7AEC9A00634822 /* PlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotGallery.m; sourceTree = "<group>"; };
-		84AD28311B7AEC9A00634822 /* PlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotItem.h; sourceTree = "<group>"; };
-		84AD28321B7AEC9A00634822 /* PlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotItem.m; sourceTree = "<group>"; };
 		84F9F4F41B74461900EACB1E /* JESimplePieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESimplePieChart.h; sourceTree = "<group>"; };
 		84F9F4F51B74461900EACB1E /* JESimplePieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESimplePieChart.m; sourceTree = "<group>"; };
 		84F9F4F71B7483E100EACB1E /* JEBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEBarChart.h; sourceTree = "<group>"; };
@@ -180,7 +180,12 @@
 		841BC12E1B71BACC00F256AF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				84AD282C1B7AEC9A00634822 /* Exclude */,
+				841518BE1B7B1B36009AF230 /* PiNumberFormatter.h */,
+				841518BF1B7B1B36009AF230 /* PiNumberFormatter.m */,
+				841518C01B7B1B36009AF230 /* PlotGallery.h */,
+				841518C11B7B1B36009AF230 /* PlotGallery.m */,
+				841518C21B7B1B36009AF230 /* PlotItem.h */,
+				841518C31B7B1B36009AF230 /* PlotItem.m */,
 				84F9F4F71B7483E100EACB1E /* JEBarChart.h */,
 				84F9F4F81B7483E100EACB1E /* JEBarChart.m */,
 				84F9F4F41B74461900EACB1E /* JESimplePieChart.h */,
@@ -201,19 +206,6 @@
 				841BC15E1B73446200F256AF /* JEDonutPiePlotView.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		84AD282C1B7AEC9A00634822 /* Exclude */ = {
-			isa = PBXGroup;
-			children = (
-				84AD282D1B7AEC9A00634822 /* PiNumberFormatter.h */,
-				84AD282E1B7AEC9A00634822 /* PiNumberFormatter.m */,
-				84AD282F1B7AEC9A00634822 /* PlotGallery.h */,
-				84AD28301B7AEC9A00634822 /* PlotGallery.m */,
-				84AD28311B7AEC9A00634822 /* PlotItem.h */,
-				84AD28321B7AEC9A00634822 /* PlotItem.m */,
-			);
-			path = Exclude;
 			sourceTree = "<group>";
 		};
 		FACE5B2672C8C89CE6CFD990 /* Frameworks */ = {
@@ -360,20 +352,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84AD28351B7AEC9A00634822 /* PlotItem.m in Sources */,
 				841BC1381B71BC0A00F256AF /* EMCollectionGraphView.m in Sources */,
+				841518C51B7B1B36009AF230 /* PlotGallery.m in Sources */,
 				841BC15F1B73446200F256AF /* JEDonutPiePlotView.m in Sources */,
-				84AD28331B7AEC9A00634822 /* PiNumberFormatter.m in Sources */,
 				841BC1111B71B6BE00F256AF /* ViewController.m in Sources */,
 				84F9F4F61B74461900EACB1E /* JESimplePieChart.m in Sources */,
+				841518C41B7B1B36009AF230 /* PiNumberFormatter.m in Sources */,
 				841BC1371B71BC0A00F256AF /* BaseTouchesView.m in Sources */,
 				841BC13A1B71BC0A00F256AF /* SNEventGraphView.m in Sources */,
-				84AD28341B7AEC9A00634822 /* PlotGallery.m in Sources */,
 				841BC13D1B71BEA400F256AF /* CurvedScatterPlot.m in Sources */,
 				841BC10E1B71B6BE00F256AF /* AppDelegate.m in Sources */,
 				841BC1391B71BC0A00F256AF /* JEGraphTheme.m in Sources */,
 				841BC10B1B71B6BE00F256AF /* main.m in Sources */,
 				841BC1591B733A1700F256AF /* JECurvedPlotView.m in Sources */,
+				841518C61B7B1B36009AF230 /* PlotItem.m in Sources */,
 				84F9F4F91B7483E100EACB1E /* JEBarChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

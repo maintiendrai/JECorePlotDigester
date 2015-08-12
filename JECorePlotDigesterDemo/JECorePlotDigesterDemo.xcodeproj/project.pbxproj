@@ -27,6 +27,7 @@
 		841BC1161B71B6BE00F256AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841BC1151B71B6BE00F256AF /* Images.xcassets */; };
 		841BC1191B71B6BE00F256AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BC1171B71B6BE00F256AF /* LaunchScreen.xib */; };
 		841BC1251B71B6BE00F256AF /* JECorePlotDigesterDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1241B71B6BE00F256AF /* JECorePlotDigesterDemoTests.m */; };
+		844FD5C51B7B3ACC00B01BD7 /* CPTGradient+Extends.m in Sources */ = {isa = PBXBuildFile; fileRef = 844FD5C41B7B3ACC00B01BD7 /* CPTGradient+Extends.m */; };
 		84F9F4FB1B748ECF00EACB1E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F9F4FA1B748ECF00EACB1E /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		841BC1231B71B6BE00F256AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841BC1241B71B6BE00F256AF /* JECorePlotDigesterDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JECorePlotDigesterDemoTests.m; sourceTree = "<group>"; };
 		841BC1561B71F19C00F256AF /* JECorePlotDigesterDemo_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JECorePlotDigesterDemo_Prefix.pch; sourceTree = "<group>"; };
+		844FD5C31B7B3ACC00B01BD7 /* CPTGradient+Extends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CPTGradient+Extends.h"; sourceTree = "<group>"; };
+		844FD5C41B7B3ACC00B01BD7 /* CPTGradient+Extends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CPTGradient+Extends.m"; sourceTree = "<group>"; };
 		84F9F4FA1B748ECF00EACB1E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9F3A6A04F6FA9AE0439B6E1B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F3BE07023A61409F8246FF88 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				841519021B7B350D009AF230 /* PlotItem.m */,
 				841519031B7B350D009AF230 /* SNEventGraphView.h */,
 				841519041B7B350D009AF230 /* SNEventGraphView.m */,
+				844FD5C31B7B3ACC00B01BD7 /* CPTGradient+Extends.h */,
+				844FD5C41B7B3ACC00B01BD7 /* CPTGradient+Extends.m */,
 			);
 			name = Classes;
 			path = ../../Classes;
@@ -365,6 +370,7 @@
 				841BC10E1B71B6BE00F256AF /* AppDelegate.m in Sources */,
 				841519061B7B350D009AF230 /* CurvedScatterPlot.m in Sources */,
 				841BC10B1B71B6BE00F256AF /* main.m in Sources */,
+				844FD5C51B7B3ACC00B01BD7 /* CPTGradient+Extends.m in Sources */,
 				8415190F1B7B350D009AF230 /* PlotItem.m in Sources */,
 				841519091B7B350D009AF230 /* JECurvedPlotView.m in Sources */,
 				8415190E1B7B350D009AF230 /* PlotGallery.m in Sources */,

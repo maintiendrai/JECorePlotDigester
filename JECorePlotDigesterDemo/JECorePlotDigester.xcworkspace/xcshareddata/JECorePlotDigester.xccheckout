@@ -14,11 +14,11 @@
 		<string>https://github.com/maintiendrai/JECorePlotDigester.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>JECorePlotDigester.xcworkspace</string>
+	<string>JECorePlotDigesterDemo/JECorePlotDigester.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2118B474EB08D01FCA05F0564A33166A3B4E98A2</key>
-		<string>..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/maintiendrai/JECorePlotDigester.git</string>

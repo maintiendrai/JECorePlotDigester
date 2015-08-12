@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JECorePlotDigester"
-  s.version      = "0.1"
+  s.version      = "0.1.1"
   s.summary      = "JECorePlotDigester is an encapsulation for BarChart、SimplePieChart、CurvedPlotChat base on CorePlot "
 
   s.description  = <<-DESC
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/maintiendrai/JECorePlotDigester.git", :tag => "0.1" }
+  s.source       = { :git => "https://github.com/maintiendrai/JECorePlotDigester.git", :tag => "0.1.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

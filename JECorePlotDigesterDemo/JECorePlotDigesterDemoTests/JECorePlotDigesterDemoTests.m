@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface JECorePlotDigesterTests : XCTestCase
+@interface JECorePlotDigesterDemoTests : XCTestCase
 
 @end
 
-@implementation JECorePlotDigesterTests
+@implementation JECorePlotDigesterDemoTests
 
 - (void)setUp {
     [super setUp];

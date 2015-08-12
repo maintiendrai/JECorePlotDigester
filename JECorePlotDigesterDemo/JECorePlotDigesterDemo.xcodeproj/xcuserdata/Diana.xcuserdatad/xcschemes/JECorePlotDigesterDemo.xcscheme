@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "841BC1041B71B6BD00F256AF"
-               BuildableName = "JECorePlotDigester.app"
-               BlueprintName = "JECorePlotDigester"
-               ReferencedContainer = "container:JECorePlotDigester.xcodeproj">
+               BuildableName = "JECorePlotDigesterDemo.app"
+               BlueprintName = "JECorePlotDigesterDemo"
+               ReferencedContainer = "container:JECorePlotDigesterDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "841BC11D1B71B6BE00F256AF"
-               BuildableName = "JECorePlotDigesterTests.xctest"
-               BlueprintName = "JECorePlotDigesterTests"
-               ReferencedContainer = "container:JECorePlotDigester.xcodeproj">
+               BuildableName = "JECorePlotDigesterDemoTests.xctest"
+               BlueprintName = "JECorePlotDigesterDemoTests"
+               ReferencedContainer = "container:JECorePlotDigesterDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "841BC11D1B71B6BE00F256AF"
-               BuildableName = "JECorePlotDigesterTests.xctest"
-               BlueprintName = "JECorePlotDigesterTests"
-               ReferencedContainer = "container:JECorePlotDigester.xcodeproj">
+               BuildableName = "JECorePlotDigesterDemoTests.xctest"
+               BlueprintName = "JECorePlotDigesterDemoTests"
+               ReferencedContainer = "container:JECorePlotDigesterDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "841BC1041B71B6BD00F256AF"
-            BuildableName = "JECorePlotDigester.app"
-            BlueprintName = "JECorePlotDigester"
-            ReferencedContainer = "container:JECorePlotDigester.xcodeproj">
+            BuildableName = "JECorePlotDigesterDemo.app"
+            BlueprintName = "JECorePlotDigesterDemo"
+            ReferencedContainer = "container:JECorePlotDigesterDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "841BC1041B71B6BD00F256AF"
-            BuildableName = "JECorePlotDigester.app"
-            BlueprintName = "JECorePlotDigester"
-            ReferencedContainer = "container:JECorePlotDigester.xcodeproj">
+            BuildableName = "JECorePlotDigesterDemo.app"
+            BlueprintName = "JECorePlotDigesterDemo"
+            ReferencedContainer = "container:JECorePlotDigesterDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "841BC1041B71B6BD00F256AF"
-            BuildableName = "JECorePlotDigester.app"
-            BlueprintName = "JECorePlotDigester"
-            ReferencedContainer = "container:JECorePlotDigester.xcodeproj">
+            BuildableName = "JECorePlotDigesterDemo.app"
+            BlueprintName = "JECorePlotDigesterDemo"
+            ReferencedContainer = "container:JECorePlotDigesterDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8E9DA650-2E9F-4833-B17B-D9A4868A655B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>JECorePlotDigester</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2118B474EB08D01FCA05F0564A33166A3B4E98A2</key>
+		<string>https://github.com/maintiendrai/JECorePlotDigester.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>JECorePlotDigester.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2118B474EB08D01FCA05F0564A33166A3B4E98A2</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/maintiendrai/JECorePlotDigester.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2118B474EB08D01FCA05F0564A33166A3B4E98A2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2118B474EB08D01FCA05F0564A33166A3B4E98A2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>JECorePlotDigester</string>
+		</dict>
+	</array>
+</dict>
+</plist>

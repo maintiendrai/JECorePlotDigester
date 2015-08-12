@@ -8,6 +8,7 @@
 
 #import "JECurvedPlotView.h"
 #import "JEGraphTheme.h"
+#import "CPTGradient+Extends.h"
 
 @interface JECurvedPlotView()
 {

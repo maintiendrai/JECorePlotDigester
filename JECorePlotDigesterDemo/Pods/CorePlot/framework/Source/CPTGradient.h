@@ -77,7 +77,6 @@ typedef NS_ENUM (NSInteger, CPTGradientType) {
 +(instancetype)rainbowGradient;
 +(instancetype)hydrogenSpectrumGradient;
 
-//+(instancetype)fadeinfadeoutGradient;
 /// @}
 
 /// @name Modification

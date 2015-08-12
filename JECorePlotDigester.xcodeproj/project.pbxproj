@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		082BEB591117F363F4479CA7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C5683C9DCDE27D015CF49F /* libPods.a */; };
+		841BC10B1B71B6BE00F256AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC10A1B71B6BE00F256AF /* main.m */; };
+		841BC10E1B71B6BE00F256AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC10D1B71B6BE00F256AF /* AppDelegate.m */; };
+		841BC1111B71B6BE00F256AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1101B71B6BE00F256AF /* ViewController.m */; };
+		841BC1141B71B6BE00F256AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BC1121B71B6BE00F256AF /* Main.storyboard */; };
+		841BC1161B71B6BE00F256AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841BC1151B71B6BE00F256AF /* Images.xcassets */; };
+		841BC1191B71B6BE00F256AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841BC1171B71B6BE00F256AF /* LaunchScreen.xib */; };
+		841BC1251B71B6BE00F256AF /* JECorePlotDigesterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1241B71B6BE00F256AF /* JECorePlotDigesterTests.m */; };
+		841BC1371B71BC0A00F256AF /* BaseTouchesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1301B71BC0A00F256AF /* BaseTouchesView.m */; };
+		841BC1381B71BC0A00F256AF /* EMCollectionGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1321B71BC0A00F256AF /* EMCollectionGraphView.m */; };
+		841BC1391B71BC0A00F256AF /* JEGraphTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1341B71BC0A00F256AF /* JEGraphTheme.m */; };
+		841BC13A1B71BC0A00F256AF /* SNEventGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1361B71BC0A00F256AF /* SNEventGraphView.m */; };
+		841BC13D1B71BEA400F256AF /* CurvedScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC13C1B71BEA400F256AF /* CurvedScatterPlot.m */; };
+		841BC1451B71DD6C00F256AF /* PiNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1401B71DD6C00F256AF /* PiNumberFormatter.m */; };
+		841BC1461B71DD6C00F256AF /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1421B71DD6C00F256AF /* PlotGallery.m */; };
+		841BC1471B71DD6C00F256AF /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1441B71DD6C00F256AF /* PlotItem.m */; };
+		841BC1591B733A1700F256AF /* JECurvedPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1581B733A1700F256AF /* JECurvedPlotView.m */; };
+		841BC15F1B73446200F256AF /* JEDonutPiePlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC15E1B73446200F256AF /* JEDonutPiePlotView.m */; };
+		84F9F4F61B74461900EACB1E /* JESimplePieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9F4F51B74461900EACB1E /* JESimplePieChart.m */; };
+		84F9F4F91B7483E100EACB1E /* JEBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F9F4F81B7483E100EACB1E /* JEBarChart.m */; };
+		84F9F4FB1B748ECF00EACB1E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F9F4FA1B748ECF00EACB1E /* CoreTelephony.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		841BC11F1B71B6BE00F256AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 841BC0FD1B71B6BD00F256AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 841BC1041B71B6BD00F256AF;
+			remoteInfo = JECorePlotDigester;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		76C5683C9DCDE27D015CF49F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		841BC1051B71B6BD00F256AF /* JECorePlotDigester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JECorePlotDigester.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		841BC1091B71B6BD00F256AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		841BC10A1B71B6BE00F256AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		841BC10C1B71B6BE00F256AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		841BC10D1B71B6BE00F256AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		841BC10F1B71B6BE00F256AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		841BC1101B71B6BE00F256AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		841BC1131B71B6BE00F256AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		841BC1151B71B6BE00F256AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		841BC1181B71B6BE00F256AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		841BC11E1B71B6BE00F256AF /* JECorePlotDigesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JECorePlotDigesterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		841BC1231B71B6BE00F256AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		841BC1241B71B6BE00F256AF /* JECorePlotDigesterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JECorePlotDigesterTests.m; sourceTree = "<group>"; };
+		841BC12F1B71BC0A00F256AF /* BaseTouchesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTouchesView.h; sourceTree = "<group>"; };
+		841BC1301B71BC0A00F256AF /* BaseTouchesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTouchesView.m; sourceTree = "<group>"; };
+		841BC1311B71BC0A00F256AF /* EMCollectionGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCollectionGraphView.h; sourceTree = "<group>"; };
+		841BC1321B71BC0A00F256AF /* EMCollectionGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCollectionGraphView.m; sourceTree = "<group>"; };
+		841BC1331B71BC0A00F256AF /* JEGraphTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEGraphTheme.h; sourceTree = "<group>"; };
+		841BC1341B71BC0A00F256AF /* JEGraphTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEGraphTheme.m; sourceTree = "<group>"; };
+		841BC1351B71BC0A00F256AF /* SNEventGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNEventGraphView.h; sourceTree = "<group>"; };
+		841BC1361B71BC0A00F256AF /* SNEventGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNEventGraphView.m; sourceTree = "<group>"; };
+		841BC13B1B71BEA400F256AF /* CurvedScatterPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurvedScatterPlot.h; sourceTree = "<group>"; };
+		841BC13C1B71BEA400F256AF /* CurvedScatterPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurvedScatterPlot.m; sourceTree = "<group>"; };
+		841BC13F1B71DD6C00F256AF /* PiNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiNumberFormatter.h; sourceTree = "<group>"; };
+		841BC1401B71DD6C00F256AF /* PiNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiNumberFormatter.m; sourceTree = "<group>"; };
+		841BC1411B71DD6C00F256AF /* PlotGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotGallery.h; sourceTree = "<group>"; };
+		841BC1421B71DD6C00F256AF /* PlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotGallery.m; sourceTree = "<group>"; };
+		841BC1431B71DD6C00F256AF /* PlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotItem.h; sourceTree = "<group>"; };
+		841BC1441B71DD6C00F256AF /* PlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotItem.m; sourceTree = "<group>"; };
+		841BC1561B71F19C00F256AF /* JECorePlotDigester_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JECorePlotDigester_Prefix.pch; sourceTree = "<group>"; };
+		841BC1571B733A1700F256AF /* JECurvedPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JECurvedPlotView.h; sourceTree = "<group>"; };
+		841BC1581B733A1700F256AF /* JECurvedPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JECurvedPlotView.m; sourceTree = "<group>"; };
+		841BC15D1B73446200F256AF /* JEDonutPiePlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEDonutPiePlotView.h; sourceTree = "<group>"; };
+		841BC15E1B73446200F256AF /* JEDonutPiePlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEDonutPiePlotView.m; sourceTree = "<group>"; };
+		84F9F4F41B74461900EACB1E /* JESimplePieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JESimplePieChart.h; sourceTree = "<group>"; };
+		84F9F4F51B74461900EACB1E /* JESimplePieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JESimplePieChart.m; sourceTree = "<group>"; };
+		84F9F4F71B7483E100EACB1E /* JEBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEBarChart.h; sourceTree = "<group>"; };
+		84F9F4F81B7483E100EACB1E /* JEBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEBarChart.m; sourceTree = "<group>"; };
+		84F9F4FA1B748ECF00EACB1E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9F3A6A04F6FA9AE0439B6E1B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F3BE07023A61409F8246FF88 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		841BC1021B71B6BD00F256AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84F9F4FB1B748ECF00EACB1E /* CoreTelephony.framework in Frameworks */,
+				082BEB591117F363F4479CA7 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841BC11B1B71B6BE00F256AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61A83954A529289C22F0F23B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F3A6A04F6FA9AE0439B6E1B /* Pods.debug.xcconfig */,
+				F3BE07023A61409F8246FF88 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		841BC0FC1B71B6BD00F256AF = {
+			isa = PBXGroup;
+			children = (
+				841BC1071B71B6BD00F256AF /* JECorePlotDigester */,
+				841BC1211B71B6BE00F256AF /* JECorePlotDigesterTests */,
+				841BC1061B71B6BD00F256AF /* Products */,
+				61A83954A529289C22F0F23B /* Pods */,
+				FACE5B2672C8C89CE6CFD990 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		841BC1061B71B6BD00F256AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				841BC1051B71B6BD00F256AF /* JECorePlotDigester.app */,
+				841BC11E1B71B6BE00F256AF /* JECorePlotDigesterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		841BC1071B71B6BD00F256AF /* JECorePlotDigester */ = {
+			isa = PBXGroup;
+			children = (
+				841BC13E1B71DD6C00F256AF /* Shared */,
+				841BC12E1B71BACC00F256AF /* Classes */,
+				841BC10C1B71B6BE00F256AF /* AppDelegate.h */,
+				841BC10D1B71B6BE00F256AF /* AppDelegate.m */,
+				841BC10F1B71B6BE00F256AF /* ViewController.h */,
+				841BC1101B71B6BE00F256AF /* ViewController.m */,
+				841BC1121B71B6BE00F256AF /* Main.storyboard */,
+				841BC1151B71B6BE00F256AF /* Images.xcassets */,
+				841BC1171B71B6BE00F256AF /* LaunchScreen.xib */,
+				841BC1081B71B6BD00F256AF /* Supporting Files */,
+			);
+			path = JECorePlotDigester;
+			sourceTree = "<group>";
+		};
+		841BC1081B71B6BD00F256AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				841BC1091B71B6BD00F256AF /* Info.plist */,
+				841BC10A1B71B6BE00F256AF /* main.m */,
+				841BC1561B71F19C00F256AF /* JECorePlotDigester_Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		841BC1211B71B6BE00F256AF /* JECorePlotDigesterTests */ = {
+			isa = PBXGroup;
+			children = (
+				841BC1241B71B6BE00F256AF /* JECorePlotDigesterTests.m */,
+				841BC1221B71B6BE00F256AF /* Supporting Files */,
+			);
+			path = JECorePlotDigesterTests;
+			sourceTree = "<group>";
+		};
+		841BC1221B71B6BE00F256AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				841BC1231B71B6BE00F256AF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		841BC12E1B71BACC00F256AF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				84F9F4F71B7483E100EACB1E /* JEBarChart.h */,
+				84F9F4F81B7483E100EACB1E /* JEBarChart.m */,
+				84F9F4F41B74461900EACB1E /* JESimplePieChart.h */,
+				84F9F4F51B74461900EACB1E /* JESimplePieChart.m */,
+				841BC13B1B71BEA400F256AF /* CurvedScatterPlot.h */,
+				841BC13C1B71BEA400F256AF /* CurvedScatterPlot.m */,
+				841BC12F1B71BC0A00F256AF /* BaseTouchesView.h */,
+				841BC1301B71BC0A00F256AF /* BaseTouchesView.m */,
+				841BC1311B71BC0A00F256AF /* EMCollectionGraphView.h */,
+				841BC1321B71BC0A00F256AF /* EMCollectionGraphView.m */,
+				841BC1331B71BC0A00F256AF /* JEGraphTheme.h */,
+				841BC1341B71BC0A00F256AF /* JEGraphTheme.m */,
+				841BC1351B71BC0A00F256AF /* SNEventGraphView.h */,
+				841BC1361B71BC0A00F256AF /* SNEventGraphView.m */,
+				841BC1571B733A1700F256AF /* JECurvedPlotView.h */,
+				841BC1581B733A1700F256AF /* JECurvedPlotView.m */,
+				841BC15D1B73446200F256AF /* JEDonutPiePlotView.h */,
+				841BC15E1B73446200F256AF /* JEDonutPiePlotView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		841BC13E1B71DD6C00F256AF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				841BC13F1B71DD6C00F256AF /* PiNumberFormatter.h */,
+				841BC1401B71DD6C00F256AF /* PiNumberFormatter.m */,
+				841BC1411B71DD6C00F256AF /* PlotGallery.h */,
+				841BC1421B71DD6C00F256AF /* PlotGallery.m */,
+				841BC1431B71DD6C00F256AF /* PlotItem.h */,
+				841BC1441B71DD6C00F256AF /* PlotItem.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FACE5B2672C8C89CE6CFD990 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84F9F4FA1B748ECF00EACB1E /* CoreTelephony.framework */,
+				76C5683C9DCDE27D015CF49F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		841BC1041B71B6BD00F256AF /* JECorePlotDigester */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 841BC1281B71B6BE00F256AF /* Build configuration list for PBXNativeTarget "JECorePlotDigester" */;
+			buildPhases = (
+				ABCFADB67ACF4F9C51797E65 /* Check Pods Manifest.lock */,
+				841BC1011B71B6BD00F256AF /* Sources */,
+				841BC1021B71B6BD00F256AF /* Frameworks */,
+				841BC1031B71B6BD00F256AF /* Resources */,
+				808933CE672760818A9DB5BF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JECorePlotDigester;
+			productName = JECorePlotDigester;
+			productReference = 841BC1051B71B6BD00F256AF /* JECorePlotDigester.app */;
+			productType = "com.apple.product-type.application";
+		};
+		841BC11D1B71B6BE00F256AF /* JECorePlotDigesterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 841BC12B1B71B6BE00F256AF /* Build configuration list for PBXNativeTarget "JECorePlotDigesterTests" */;
+			buildPhases = (
+				841BC11A1B71B6BE00F256AF /* Sources */,
+				841BC11B1B71B6BE00F256AF /* Frameworks */,
+				841BC11C1B71B6BE00F256AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				841BC1201B71B6BE00F256AF /* PBXTargetDependency */,
+			);
+			name = JECorePlotDigesterTests;
+			productName = JECorePlotDigesterTests;
+			productReference = 841BC11E1B71B6BE00F256AF /* JECorePlotDigesterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		841BC0FD1B71B6BD00F256AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = evideo;
+				TargetAttributes = {
+					841BC1041B71B6BD00F256AF = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					841BC11D1B71B6BE00F256AF = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 841BC1041B71B6BD00F256AF;
+					};
+				};
+			};
+			buildConfigurationList = 841BC1001B71B6BD00F256AF /* Build configuration list for PBXProject "JECorePlotDigester" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 841BC0FC1B71B6BD00F256AF;
+			productRefGroup = 841BC1061B71B6BD00F256AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				841BC1041B71B6BD00F256AF /* JECorePlotDigester */,
+				841BC11D1B71B6BE00F256AF /* JECorePlotDigesterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		841BC1031B71B6BD00F256AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841BC1141B71B6BE00F256AF /* Main.storyboard in Resources */,
+				841BC1191B71B6BE00F256AF /* LaunchScreen.xib in Resources */,
+				841BC1161B71B6BE00F256AF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841BC11C1B71B6BE00F256AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		808933CE672760818A9DB5BF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABCFADB67ACF4F9C51797E65 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		841BC1011B71B6BD00F256AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841BC1451B71DD6C00F256AF /* PiNumberFormatter.m in Sources */,
+				841BC1381B71BC0A00F256AF /* EMCollectionGraphView.m in Sources */,
+				841BC15F1B73446200F256AF /* JEDonutPiePlotView.m in Sources */,
+				841BC1471B71DD6C00F256AF /* PlotItem.m in Sources */,
+				841BC1111B71B6BE00F256AF /* ViewController.m in Sources */,
+				84F9F4F61B74461900EACB1E /* JESimplePieChart.m in Sources */,
+				841BC1371B71BC0A00F256AF /* BaseTouchesView.m in Sources */,
+				841BC13A1B71BC0A00F256AF /* SNEventGraphView.m in Sources */,
+				841BC13D1B71BEA400F256AF /* CurvedScatterPlot.m in Sources */,
+				841BC10E1B71B6BE00F256AF /* AppDelegate.m in Sources */,
+				841BC1391B71BC0A00F256AF /* JEGraphTheme.m in Sources */,
+				841BC10B1B71B6BE00F256AF /* main.m in Sources */,
+				841BC1461B71DD6C00F256AF /* PlotGallery.m in Sources */,
+				841BC1591B733A1700F256AF /* JECurvedPlotView.m in Sources */,
+				84F9F4F91B7483E100EACB1E /* JEBarChart.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841BC11A1B71B6BE00F256AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841BC1251B71B6BE00F256AF /* JECorePlotDigesterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		841BC1201B71B6BE00F256AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 841BC1041B71B6BD00F256AF /* JECorePlotDigester */;
+			targetProxy = 841BC11F1B71B6BE00F256AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		841BC1121B71B6BE00F256AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BC1131B71B6BE00F256AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		841BC1171B71B6BE00F256AF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841BC1181B71B6BE00F256AF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		841BC1261B71B6BE00F256AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		841BC1271B71B6BE00F256AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		841BC1291B71B6BE00F256AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F3A6A04F6FA9AE0439B6E1B /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenfa xu (9EBECPU8BY)";
+				GCC_PREFIX_HEADER = JECorePlotDigester/JECorePlotDigester_Prefix.pch;
+				INFOPLIST_FILE = JECorePlotDigester/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		841BC12A1B71B6BE00F256AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3BE07023A61409F8246FF88 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: wenfa xu (9EBECPU8BY)";
+				GCC_PREFIX_HEADER = JECorePlotDigester/JECorePlotDigester_Prefix.pch;
+				INFOPLIST_FILE = JECorePlotDigester/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		841BC12C1B71B6BE00F256AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JECorePlotDigesterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JECorePlotDigester.app/JECorePlotDigester";
+			};
+			name = Debug;
+		};
+		841BC12D1B71B6BE00F256AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = JECorePlotDigesterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JECorePlotDigester.app/JECorePlotDigester";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		841BC1001B71B6BD00F256AF /* Build configuration list for PBXProject "JECorePlotDigester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				841BC1261B71B6BE00F256AF /* Debug */,
+				841BC1271B71B6BE00F256AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		841BC1281B71B6BE00F256AF /* Build configuration list for PBXNativeTarget "JECorePlotDigester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				841BC1291B71B6BE00F256AF /* Debug */,
+				841BC12A1B71B6BE00F256AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		841BC12B1B71B6BE00F256AF /* Build configuration list for PBXNativeTarget "JECorePlotDigesterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				841BC12C1B71B6BE00F256AF /* Debug */,
+				841BC12D1B71B6BE00F256AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 841BC0FD1B71B6BD00F256AF /* Project object */;
+}

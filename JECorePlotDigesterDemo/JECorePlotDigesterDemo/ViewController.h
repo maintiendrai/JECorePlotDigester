@@ -11,7 +11,7 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, strong) PlotItem *detailItem;
+
 
 
 @end

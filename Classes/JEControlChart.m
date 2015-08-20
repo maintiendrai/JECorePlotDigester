@@ -1,23 +1,25 @@
-#import "ControlChart.h"
+#import "JEControlChart.h"
+#import "CPTGradient+Extends.h"
+#import "JEGraphTheme.h"
 
 static NSString *const kDataLine    = @"Data Line";
-static NSString *const kCenterLine  = @"Center Line";
-static NSString *const kControlLine = @"Control Line";
-static NSString *const kWarningLine = @"Warning Line";
 
-static const NSUInteger numberOfPoints = 11;
+static NSString *const kDataLine1    = @"Data Line1";
 
-@interface ControlChart()
 
-@property (nonatomic, readwrite, strong) NSArray *plotData;
+
+@interface JEControlChart()
+
+
 @property (nonatomic, readwrite, assign) double meanValue;
 @property (nonatomic, readwrite, assign) double standardError;
 
 @end
 
-@implementation ControlChart
+@implementation JEControlChart
 
 @synthesize plotData;
+@synthesize plotData1;
 @synthesize meanValue;
 @synthesize standardError;
 
@@ -29,37 +31,55 @@ static const NSUInteger numberOfPoints = 11;
 -(instancetype)init
 {
     if ( (self = [super init]) ) {
-        self.title   = @"Control Chart";
-        self.section = kLinePlots;
+        //        self.title   = @"Control Chart";
+        //        self.section = kLinePlots;
     }
-
+    
     return self;
+}
+
+- (void)reloadData
+{
+    [self renderInView:self.hostView withTheme:nil animated:YES];
 }
 
 -(void)generateData
 {
     if ( self.plotData == nil ) {
+        _numberOfPoints = 30;
         NSMutableArray *contentArray = [NSMutableArray array];
-
+        NSMutableArray *contentArray1 = [NSMutableArray array];
+        
         double sum = 0.0;
-
-        for ( NSUInteger i = 0; i < numberOfPoints; i++ ) {
-            double y = 12.0 * arc4random() / (double)UINT32_MAX + 5.0;
+        
+        double args[30] = { 9, 10, 25, 10, 19, 0, 26, 25, 22, 18, 13, 10 ,15, 25, 16, 0, 2, 19, 15, 20, 21, 8, 4, 15, 24, 13, 10, 9, 12, 20};
+        
+        
+        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
+            double y = args[i];
             sum += y;
             [contentArray addObject:@(y)];
         }
-
-        self.plotData = contentArray;
-
-        self.meanValue = sum / numberOfPoints;
-
-        sum = 0.0;
-        for ( NSNumber *value in contentArray ) {
-            double error = [value doubleValue] - self.meanValue;
-            sum += error * error;
+        
+        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
+            double y = args[_numberOfPoints-1-i];
+            sum += y;
+            [contentArray1 addObject:@(y)];
         }
-        double stdDev = sqrt( ( 1.0 / (numberOfPoints - 1) ) * sum );
-        self.standardError = stdDev / sqrt(numberOfPoints);
+        
+        
+        self.plotData = contentArray;
+//        self.plotData1 = contentArray1;
+//
+//        self.meanValue = sum / numberOfPoints;
+//
+//        sum = 0.0;
+//        for ( NSNumber *value in contentArray ) {
+//            double error = [value doubleValue] - self.meanValue;
+//            sum += error * error;
+//        }
+//        double stdDev = sqrt( ( 1.0 / (numberOfPoints - 1) ) * sum );
+//        self.standardError = stdDev / sqrt(numberOfPoints);
     }
 }
 
@@ -70,33 +90,34 @@ static const NSUInteger numberOfPoints = 11;
 #else
     CGRect bounds = NSRectToCGRect(hostingView.bounds);
 #endif
-
+    
     CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:bounds];
     [self addGraph:graph toHostingView:hostingView];
-    [self applyTheme:theme toGraph:graph withDefault:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
-
-    graph.plotAreaFrame.paddingTop    = self.titleSize * CPTFloat(0.5);
-    graph.plotAreaFrame.paddingRight  = self.titleSize * CPTFloat(0.5);
-    graph.plotAreaFrame.paddingBottom = self.titleSize * CPTFloat(1.5);
-    graph.plotAreaFrame.paddingLeft   = self.titleSize * CPTFloat(1.5);
+    
+    [graph applyTheme:[[JEGraphTheme alloc] init]];
+    
+    
     graph.plotAreaFrame.masksToBorder = NO;
-
+    
     // Grid line styles
     CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
     majorGridLineStyle.lineWidth = 0.75;
     majorGridLineStyle.lineColor = [[CPTColor colorWithGenericGray:CPTFloat(0.2)] colorWithAlphaComponent:CPTFloat(0.75)];
-
+    majorGridLineStyle.lineFill = [CPTFill fillWithGradient:[CPTGradient fadeinfadeoutGradient]];
+    
     CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
     minorGridLineStyle.lineWidth = 0.25;
     minorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:CPTFloat(0.1)];
-
-    CPTMutableLineStyle *redLineStyle = [CPTMutableLineStyle lineStyle];
-    redLineStyle.lineWidth = 10.0;
-    redLineStyle.lineColor = [[CPTColor redColor] colorWithAlphaComponent:0.5];
-
+    
+    
     NSNumberFormatter *labelFormatter = [[NSNumberFormatter alloc] init];
     labelFormatter.maximumFractionDigits = 0;
-
+    
+    CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
+    titleStyle.color = [CPTColor lightGrayColor];
+    //    titleStyle.fontName = @"Helvetica-Bold";
+    titleStyle.fontSize = 10.0f;
+    
     // Axes
     // X axis
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
@@ -105,109 +126,93 @@ static const NSUInteger numberOfPoints = 11;
     x.majorGridLineStyle = majorGridLineStyle;
     x.minorGridLineStyle = minorGridLineStyle;
     x.labelFormatter     = labelFormatter;
-
-    x.title       = @"X Axis";
-    x.titleOffset = self.titleSize * CPTFloat(1.25);
-
+    x.labelTextStyle     = titleStyle;
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString (@"0" );
+    x.minorTicksPerInterval = 0;//主刻度中显示的细分刻度的数目
+    x.preferredNumberOfMajorTicks = 6;
+    x.axisLineStyle               = nil;
+    x.majorTickLineStyle          = nil;
+    x.minorTickLineStyle          = nil;
+    
+    
     // Y axis
     CPTXYAxis *y = axisSet.yAxis;
     y.labelingPolicy     = CPTAxisLabelingPolicyAutomatic;
     y.majorGridLineStyle = majorGridLineStyle;
     y.minorGridLineStyle = minorGridLineStyle;
     y.labelFormatter     = labelFormatter;
-
-    y.title       = @"Y Axis";
-    y.titleOffset = self.titleSize * CPTFloat(1.25);
-
-    // Center line
-    CPTScatterPlot *centerLinePlot = [[CPTScatterPlot alloc] init];
-    centerLinePlot.identifier = kCenterLine;
-
+    y.labelTextStyle     = titleStyle;
+    y.minorTicksPerInterval = 0;//主刻度中显示的细分刻度的数目
+    y.majorTickLength = 15;
+    //    y.preferredNumberOfMajorTicks = 3;
+    //    y.minorTicksPerInterval = 20;
+    y.axisLineStyle               = nil;
+    y.majorTickLineStyle          = nil;
+    y.minorTickLineStyle          = nil;
+    
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.lineWidth          = 2.0;
-    lineStyle.lineColor          = [CPTColor greenColor];
-    centerLinePlot.dataLineStyle = lineStyle;
-
-    centerLinePlot.dataSource = self;
-    [graph addPlot:centerLinePlot];
-
-    // Control lines
-    CPTScatterPlot *controlLinePlot = [[CPTScatterPlot alloc] init];
-    controlLinePlot.identifier = kControlLine;
-
-    lineStyle                     = [CPTMutableLineStyle lineStyle];
-    lineStyle.lineWidth           = 2.0;
-    lineStyle.lineColor           = [CPTColor redColor];
-    lineStyle.dashPattern         = @[@10, @6];
-    controlLinePlot.dataLineStyle = lineStyle;
-
-    controlLinePlot.dataSource = self;
-    [graph addPlot:controlLinePlot];
-
-    // Warning lines
-    CPTScatterPlot *warningLinePlot = [[CPTScatterPlot alloc] init];
-    warningLinePlot.identifier = kWarningLine;
-
-    lineStyle                     = [CPTMutableLineStyle lineStyle];
-    lineStyle.lineWidth           = 1.0;
-    lineStyle.lineColor           = [CPTColor orangeColor];
-    lineStyle.dashPattern         = @[@5, @5];
-    warningLinePlot.dataLineStyle = lineStyle;
-
-    warningLinePlot.dataSource = self;
-    [graph addPlot:warningLinePlot];
-
-    // Data line
+    lineStyle.lineColor          = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
+    //    lineStyle.lineGradient       = [CPTGradient fadeinfadeoutGradient];
+    
+    
+    CPTMutableLineStyle *lineStyle1 = [CPTMutableLineStyle lineStyle];
+    lineStyle1.lineWidth          = 2.0;
+    lineStyle1.lineColor          = [CPTColor redColor];
+    lineStyle1.lineGradient       = [CPTGradient fadeinfadeoutGradient];
+    
+    
+    // Data line 画线
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
     linePlot.identifier = kDataLine;
-
-    lineStyle              = [CPTMutableLineStyle lineStyle];
-    lineStyle.lineWidth    = 3.0;
+    
     linePlot.dataLineStyle = lineStyle;
-
+    linePlot.interpolation = CPTScatterPlotInterpolationCurved; //曲线
+    
+    
     linePlot.dataSource = self;
     [graph addPlot:linePlot];
-
+    
+    
+    // Data line 画线
+    CPTScatterPlot *linePlot1 = [[CPTScatterPlot alloc] init];
+    linePlot1.identifier = kDataLine1;
+    linePlot1.dataLineStyle = lineStyle1;
+    linePlot1.interpolation = CPTScatterPlotInterpolationCurved; //曲线
+    
+    
+    linePlot1.dataSource = self;
+    //    [graph addPlot:linePlot1];
+    
+    
     // Add plot symbols
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
-    symbolLineStyle.lineColor = [CPTColor blackColor];
+    symbolLineStyle.lineColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
     CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
-    plotSymbol.fill      = [CPTFill fillWithColor:[CPTColor lightGrayColor]];
+    plotSymbol.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
     plotSymbol.lineStyle = symbolLineStyle;
-    plotSymbol.size      = CGSizeMake(10.0, 10.0);
+    plotSymbol.size      = CGSizeMake(6.0, 6.0);
     linePlot.plotSymbol  = plotSymbol;
-
+    
+    linePlot1.plotSymbol = plotSymbol;
+    
+    
     // Auto scale the plot space to fit the plot data
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     [plotSpace scaleToFitPlots:@[linePlot]];
-
+    
     // Adjust visible ranges so plot symbols along the edges are not clipped
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-
+    
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(31)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-3) length:CPTDecimalFromFloat(35)];
+    
     x.orthogonalCoordinateDecimal = yRange.location;
     y.orthogonalCoordinateDecimal = xRange.location;
-
-    x.visibleRange = xRange;
-    y.visibleRange = yRange;
-
-    x.gridLinesRange = yRange;
-    y.gridLinesRange = xRange;
-
-    [xRange expandRangeByFactor:CPTDecimalFromDouble(1.05)];
-    [yRange expandRangeByFactor:CPTDecimalFromDouble(1.05)];
-    plotSpace.xRange = xRange;
-    plotSpace.yRange = yRange;
-
-    // Add legend
-    graph.legend                 = [CPTLegend legendWithPlots:@[linePlot, controlLinePlot, warningLinePlot, centerLinePlot]];
-    graph.legend.fill            = [CPTFill fillWithColor:[CPTColor whiteColor]];
-    graph.legend.textStyle       = x.titleTextStyle;
-    graph.legend.borderLineStyle = x.axisLineStyle;
-    graph.legend.cornerRadius    = 5.0;
-    graph.legend.numberOfRows    = 1;
-    graph.legendAnchor           = CPTRectAnchorBottom;
-    graph.legendDisplacement     = CGPointMake( 0.0, self.titleSize * CPTFloat(4.0) );
+    
+    
+    
 }
 
 #pragma mark -
@@ -218,8 +223,8 @@ static const NSUInteger numberOfPoints = 11;
     if ( plot.identifier == kDataLine ) {
         return self.plotData.count;
     }
-    else if ( plot.identifier == kCenterLine ) {
-        return 2;
+    if (plot.identifier == kDataLine1) {
+        return self.plotData1.count;
     }
     else {
         return 5;
@@ -229,75 +234,25 @@ static const NSUInteger numberOfPoints = 11;
 -(double)doubleForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
     double number = NAN;
-
+    
     switch ( fieldEnum ) {
         case CPTScatterPlotFieldX:
             if ( plot.identifier == kDataLine ) {
                 number = (double)index;
+            } else if (plot.identifier == kDataLine1) {
+                number = (double)index;
             }
-            else {
-                switch ( index % 3 ) {
-                    case 0:
-                        number = 0.0;
-                        break;
-
-                    case 1:
-                        number = (double)(self.plotData.count - 1);
-                        break;
-
-                    case 2:
-                        number = NAN;
-                        break;
-                }
-            }
-
             break;
-
+            
         case CPTScatterPlotFieldY:
             if ( plot.identifier == kDataLine ) {
                 number = [self.plotData[index] doubleValue];
+            } else if (plot.identifier == kDataLine1) {
+                number = [self.plotData1[index] doubleValue];
             }
-            else if ( plot.identifier == kCenterLine ) {
-                number = self.meanValue;
-            }
-            else if ( plot.identifier == kControlLine ) {
-                switch ( index ) {
-                    case 0:
-                    case 1:
-                        number = self.meanValue + 3.0 * self.standardError;
-                        break;
-
-                    case 2:
-                        number = NAN;
-                        break;
-
-                    case 3:
-                    case 4:
-                        number = self.meanValue - 3.0 * self.standardError;
-                        break;
-                }
-            }
-            else if ( plot.identifier == kWarningLine ) {
-                switch ( index ) {
-                    case 0:
-                    case 1:
-                        number = self.meanValue + 2.0 * self.standardError;
-                        break;
-
-                    case 2:
-                        number = NAN;
-                        break;
-
-                    case 3:
-                    case 4:
-                        number = self.meanValue - 2.0 * self.standardError;
-                        break;
-                }
-            }
-
             break;
     }
-
+    
     return number;
 }
 

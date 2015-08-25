@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "SNEventGraphView.h"
 #import "CurvedScatterPlot.h"
 #import "JESimplePieChart.h"
 #import "JEBarChart.h"
@@ -28,15 +27,18 @@
     [super viewDidLoad];
     
     //折线图
-    PlotItem *plotItem = [[JEControlChart alloc]init];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 320, 150)];
-    [self.view addSubview:view];
+//    PlotItem *plotItem = [[JEControlChart alloc]init];
+//    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 320, 150)];
+//    [self.view addSubview:view];
 
     
 //    //饼图 JESimplePieChart:
-//    PlotItem *plotItem = [[JESimplePieChart alloc]init];
-//    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 200)];
-//    [self.view addSubview:view];
+    PlotItem *plotItem = [[JESimplePieChart alloc]init];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 400)];
+    [self.view addSubview:view];
+    
+    
+    
 //
 //    //柱状图 JEBarChart
 //    _barChartDetailItem = [[JEBarChart alloc]init];
@@ -53,7 +55,12 @@
     self.pieChartDetailItem = plotItem;
     [self.pieChartDetailItem renderInView:view withTheme:nil animated:YES];
     
+//    UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    view1.center = view.center;
+//    view1.backgroundColor = [UIColor redColor];
     
+//    [view addSubview:view1];
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 

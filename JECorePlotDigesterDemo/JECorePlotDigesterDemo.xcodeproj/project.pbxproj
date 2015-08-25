@@ -10,7 +10,6 @@
 		082BEB591117F363F4479CA7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C5683C9DCDE27D015CF49F /* libPods.a */; };
 		841519051B7B350D009AF230 /* BaseTouchesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518EE1B7B350D009AF230 /* BaseTouchesView.m */; };
 		841519061B7B350D009AF230 /* CurvedScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518F01B7B350D009AF230 /* CurvedScatterPlot.m */; };
-		841519071B7B350D009AF230 /* EMCollectionGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518F21B7B350D009AF230 /* EMCollectionGraphView.m */; };
 		841519081B7B350D009AF230 /* JEBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518F41B7B350D009AF230 /* JEBarChart.m */; };
 		841519091B7B350D009AF230 /* JECurvedPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518F61B7B350D009AF230 /* JECurvedPlotView.m */; };
 		8415190A1B7B350D009AF230 /* JEDonutPiePlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518F81B7B350D009AF230 /* JEDonutPiePlotView.m */; };
@@ -19,7 +18,6 @@
 		8415190D1B7B350D009AF230 /* PiNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 841518FE1B7B350D009AF230 /* PiNumberFormatter.m */; };
 		8415190E1B7B350D009AF230 /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 841519001B7B350D009AF230 /* PlotGallery.m */; };
 		8415190F1B7B350D009AF230 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 841519021B7B350D009AF230 /* PlotItem.m */; };
-		841519101B7B350D009AF230 /* SNEventGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841519041B7B350D009AF230 /* SNEventGraphView.m */; };
 		841BC10B1B71B6BE00F256AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC10A1B71B6BE00F256AF /* main.m */; };
 		841BC10E1B71B6BE00F256AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC10D1B71B6BE00F256AF /* AppDelegate.m */; };
 		841BC1111B71B6BE00F256AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BC1101B71B6BE00F256AF /* ViewController.m */; };
@@ -48,8 +46,6 @@
 		841518EE1B7B350D009AF230 /* BaseTouchesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTouchesView.m; sourceTree = "<group>"; };
 		841518EF1B7B350D009AF230 /* CurvedScatterPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurvedScatterPlot.h; sourceTree = "<group>"; };
 		841518F01B7B350D009AF230 /* CurvedScatterPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurvedScatterPlot.m; sourceTree = "<group>"; };
-		841518F11B7B350D009AF230 /* EMCollectionGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCollectionGraphView.h; sourceTree = "<group>"; };
-		841518F21B7B350D009AF230 /* EMCollectionGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCollectionGraphView.m; sourceTree = "<group>"; };
 		841518F31B7B350D009AF230 /* JEBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEBarChart.h; sourceTree = "<group>"; };
 		841518F41B7B350D009AF230 /* JEBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEBarChart.m; sourceTree = "<group>"; };
 		841518F51B7B350D009AF230 /* JECurvedPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JECurvedPlotView.h; sourceTree = "<group>"; };
@@ -66,8 +62,6 @@
 		841519001B7B350D009AF230 /* PlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotGallery.m; sourceTree = "<group>"; };
 		841519011B7B350D009AF230 /* PlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotItem.h; sourceTree = "<group>"; };
 		841519021B7B350D009AF230 /* PlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotItem.m; sourceTree = "<group>"; };
-		841519031B7B350D009AF230 /* SNEventGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNEventGraphView.h; sourceTree = "<group>"; };
-		841519041B7B350D009AF230 /* SNEventGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNEventGraphView.m; sourceTree = "<group>"; };
 		841BC1051B71B6BD00F256AF /* JECorePlotDigesterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JECorePlotDigesterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841BC1091B71B6BD00F256AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841BC10A1B71B6BE00F256AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,8 +121,6 @@
 				841518EE1B7B350D009AF230 /* BaseTouchesView.m */,
 				841518EF1B7B350D009AF230 /* CurvedScatterPlot.h */,
 				841518F01B7B350D009AF230 /* CurvedScatterPlot.m */,
-				841518F11B7B350D009AF230 /* EMCollectionGraphView.h */,
-				841518F21B7B350D009AF230 /* EMCollectionGraphView.m */,
 				841518F31B7B350D009AF230 /* JEBarChart.h */,
 				841518F41B7B350D009AF230 /* JEBarChart.m */,
 				841518F51B7B350D009AF230 /* JECurvedPlotView.h */,
@@ -147,8 +139,6 @@
 				847D965F1B8372DD006BF2FD /* JEControlChart.m */,
 				841519011B7B350D009AF230 /* PlotItem.h */,
 				841519021B7B350D009AF230 /* PlotItem.m */,
-				841519031B7B350D009AF230 /* SNEventGraphView.h */,
-				841519041B7B350D009AF230 /* SNEventGraphView.m */,
 				844FD5C31B7B3ACC00B01BD7 /* CPTGradient+Extends.h */,
 				844FD5C41B7B3ACC00B01BD7 /* CPTGradient+Extends.m */,
 			);
@@ -366,9 +356,7 @@
 				8415190D1B7B350D009AF230 /* PiNumberFormatter.m in Sources */,
 				8415190C1B7B350D009AF230 /* JESimplePieChart.m in Sources */,
 				841BC1111B71B6BE00F256AF /* ViewController.m in Sources */,
-				841519101B7B350D009AF230 /* SNEventGraphView.m in Sources */,
 				8415190A1B7B350D009AF230 /* JEDonutPiePlotView.m in Sources */,
-				841519071B7B350D009AF230 /* EMCollectionGraphView.m in Sources */,
 				841519051B7B350D009AF230 /* BaseTouchesView.m in Sources */,
 				841519081B7B350D009AF230 /* JEBarChart.m in Sources */,
 				8415190B1B7B350D009AF230 /* JEGraphTheme.m in Sources */,

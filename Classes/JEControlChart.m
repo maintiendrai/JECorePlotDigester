@@ -1,3 +1,12 @@
+//
+//  JEControlChart.m
+//  JECorePlotDigester
+//
+//  Created by Diana on 8/6/15.
+//  Copyright (c) 2015 evideo. All rights reserved.
+//
+
+
 #import "JEControlChart.h"
 #import "CPTGradient+Extends.h"
 #import "JEGraphTheme.h"
@@ -45,42 +54,6 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(void)generateData
 {
-    if ( self.plotData == nil ) {
-        _numberOfPoints = 30;
-        NSMutableArray *contentArray = [NSMutableArray array];
-        NSMutableArray *contentArray1 = [NSMutableArray array];
-        
-        double sum = 0.0;
-        
-        double args[30] = { 9, 10, 25, 10, 19, 0, 26, 25, 22, 18, 13, 10 ,15, 25, 16, 0, 2, 19, 15, 20, 21, 8, 4, 15, 24, 13, 10, 9, 12, 20};
-        
-        
-        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
-            double y = args[i];
-            sum += y;
-            [contentArray addObject:@(y)];
-        }
-        
-        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
-            double y = args[_numberOfPoints-1-i];
-            sum += y;
-            [contentArray1 addObject:@(y)];
-        }
-        
-        
-        self.plotData = contentArray;
-//        self.plotData1 = contentArray1;
-//
-//        self.meanValue = sum / numberOfPoints;
-//
-//        sum = 0.0;
-//        for ( NSNumber *value in contentArray ) {
-//            double error = [value doubleValue] - self.meanValue;
-//            sum += error * error;
-//        }
-//        double stdDev = sqrt( ( 1.0 / (numberOfPoints - 1) ) * sum );
-//        self.standardError = stdDev / sqrt(numberOfPoints);
-    }
 }
 
 -(void)renderInGraphHostingView:(CPTGraphHostingView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated

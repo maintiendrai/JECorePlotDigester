@@ -12,14 +12,13 @@
 #import "JEGraphTheme.h"
 
 static NSString *const kDataLine    = @"Data Line";
-
 static NSString *const kDataLine1    = @"Data Line1";
 
 
 
 @interface JEControlChart()
 
-
+@property (nonatomic, readwrite, assign) double toplevel;
 @property (nonatomic, readwrite, assign) double meanValue;
 @property (nonatomic, readwrite, assign) double standardError;
 
@@ -39,11 +38,8 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(instancetype)init
 {
-    if ( (self = [super init]) ) {
-        //        self.title   = @"Control Chart";
-        //        self.section = kLinePlots;
+    if ((self = [super init])) {
     }
-    
     return self;
 }
 
@@ -54,14 +50,18 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(void)generateData
 {
-    if (!_plotColor) {
-        // [CPTColor colorWithComponentRed:0/255 green:177/255.0 blue:255/255.0 alpha:1];   //蓝色
-        _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];   //绿
-        _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];  //红
+    if (self.plotData) {
+        self.toplevel = [((NSNumber *)self.plotData[0]) intValue];
+        for (NSInteger i=0; i<self.plotData.count; i++) {
+            int tmp = [((NSNumber *)self.plotData[i]) intValue];
+            self.toplevel = (self.toplevel < tmp) ? tmp : self.toplevel;
+        }
+    } else {
+        _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
+        _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];
+        [self dataTest];
     }
     
-//    self.meanValue = 10;
-//        [self dataTest];
 }
 
 
@@ -76,14 +76,16 @@ static NSString *const kDataLine1    = @"Data Line1";
         
         double args[5] = { 9, 10, 25, 10, 19};
         
-        
-        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
+        self.toplevel = args[0];
+        for (NSUInteger i = 0; i<sizeof(args); i++) {
+            self.toplevel = self.toplevel<args[i] ? args[i] : self.toplevel;
             double y = args[i];
             sum += y;
             [contentArray addObject:@(y)];
         }
         
         for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
+            self.toplevel = self.toplevel<args[i] ? args[i] : self.toplevel;
             double y = args[_numberOfPoints-1-i];
             sum += y;
             [contentArray1 addObject:@(y)];
@@ -91,7 +93,6 @@ static NSString *const kDataLine1    = @"Data Line1";
         
         
         self.plotData = contentArray;
-        
         
         self.plotData1 = contentArray1;
         
@@ -110,7 +111,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     
 }
 
--(void)renderInGraphHostingView:(CPTGraphHostingView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated
+- (void)renderInGraphHostingView:(CPTGraphHostingView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated
 {
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
     CGRect bounds = hostingView.bounds;
@@ -126,79 +127,17 @@ static NSString *const kDataLine1    = @"Data Line1";
     
     graph.plotAreaFrame.masksToBorder = NO;
     
-    // Grid line styles
-    CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
-    majorGridLineStyle.lineWidth = 0.75;
-    majorGridLineStyle.lineColor = [[CPTColor colorWithGenericGray:CPTFloat(0.2)] colorWithAlphaComponent:CPTFloat(0.75)];
-    majorGridLineStyle.lineFill = [CPTFill fillWithGradient:[CPTGradient fadeinfadeoutGradient]];
-    
-    CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
-    minorGridLineStyle.lineWidth = 0.25;
-    minorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:CPTFloat(0.1)];
-    
-    
-    NSNumberFormatter *labelFormatter = [[NSNumberFormatter alloc] init];
-    labelFormatter.maximumFractionDigits = 0;
-    
-    CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
-    titleStyle.color = [CPTColor lightGrayColor];
-    //    titleStyle.fontName = @"Helvetica-Bold";
-    titleStyle.fontSize = 10.0f;
-    
-    // Axes
-    // X axis
-    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
-    CPTXYAxis *x          = axisSet.xAxis;
-    x.labelingPolicy     = CPTAxisLabelingPolicyAutomatic;
-    x.majorGridLineStyle = majorGridLineStyle;
-    x.minorGridLineStyle = minorGridLineStyle;
-    x.labelFormatter     = labelFormatter;
-    x.labelTextStyle     = titleStyle;
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString (@"0" );
-    x.minorTicksPerInterval = 0;//主刻度中显示的细分刻度的数目
-    x.preferredNumberOfMajorTicks = 3;
-    x.axisLineStyle               = nil;
-    x.majorTickLineStyle          = nil;
-    x.minorTickLineStyle          = nil;
-//    x.majorIntervalLength = CPTDecimalFromFloat(20.f/6);
-    
-    
-    // Y axis
-    CPTXYAxis *y = axisSet.yAxis;
-    y.labelingPolicy     = CPTAxisLabelingPolicyAutomatic;
-    y.majorGridLineStyle = majorGridLineStyle;
-    y.minorGridLineStyle = minorGridLineStyle;
-    y.labelFormatter     = labelFormatter;
-    y.labelTextStyle     = titleStyle;
-    y.minorTicksPerInterval = 0;//主刻度中显示的细分刻度的数目
-    y.majorTickLength = 15;
-    //    y.preferredNumberOfMajorTicks = 3;
-//        y.minorTicksPerInterval = 20;
-    
-//    y.majorIntervalLength = CPTDecimalFromFloat(20);
-    y.axisLineStyle               = nil;
-    y.majorTickLineStyle          = nil;
-    y.minorTickLineStyle          = nil;
-    
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.lineWidth          = 2.0;
     lineStyle.lineColor          = _plotColor;
-    //    lineStyle.lineGradient       = [CPTGradient fadeinfadeoutGradient];
+
     
-    
-    CPTMutableLineStyle *lineStyle1 = [CPTMutableLineStyle lineStyle];
-    lineStyle1.lineWidth          = 2.0;
-    lineStyle1.lineColor          = _plotColor1;
-    //    lineStyle1.lineColor          = [CPTColor redColor];
-    //    lineStyle1.lineGradient       = [CPTGradient fadeinfadeoutGradient];
-    
-    
-    // Data line 画线
+    //Data line
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
     linePlot.identifier = kDataLine;
     
     linePlot.dataLineStyle = lineStyle;
-    linePlot.interpolation = CPTScatterPlotInterpolationCurved; //曲线
+    linePlot.interpolation = CPTScatterPlotInterpolationCurved; //curve
     
     
     linePlot.dataSource = self;
@@ -214,15 +153,77 @@ static NSString *const kDataLine1    = @"Data Line1";
     linePlot.plotSymbol  = plotSymbol;
     
     
+    //Auto scale the plot space to fit the plot data
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
+    [plotSpace scaleToFitPlots:@[linePlot]];
+    NSLog(@"nuberof points %d  ........ tolevel  %d", self.numberOfPoints, self.toplevel);
+    
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(self.numberOfPoints+1)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-3) length:CPTDecimalFromFloat(self.toplevel+10)];
+    
+    
+    // Grid line styles
+    CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
+    majorGridLineStyle.lineWidth = 0.75;
+    majorGridLineStyle.lineColor = [[CPTColor colorWithGenericGray:CPTFloat(0.2)] colorWithAlphaComponent:CPTFloat(0.75)];
+    majorGridLineStyle.lineFill = [CPTFill fillWithGradient:[CPTGradient fadeinfadeoutGradient]];
+    
+    CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
+    minorGridLineStyle.lineWidth = 0.25;
+    minorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:CPTFloat(0.1)];
+    
+    //coordinate label format
+    NSNumberFormatter *labelFormatter = [[NSNumberFormatter alloc] init];
+    labelFormatter.maximumFractionDigits = 0;
+    
+    CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
+    titleStyle.color = [CPTColor lightGrayColor];
+    titleStyle.fontSize = 10.0f;
+    
+    // Axes
+    // X axis
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+    CPTXYAxis *x          = axisSet.xAxis;
+    x.labelingPolicy     = CPTAxisLabelingPolicyEqualDivisions;
+    x.majorGridLineStyle = majorGridLineStyle;
+    x.minorGridLineStyle = minorGridLineStyle;
+    x.labelFormatter     = labelFormatter;
+    x.labelTextStyle     = titleStyle;
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+    x.minorTicksPerInterval = 0;//sub scale
+    x.preferredNumberOfMajorTicks = 8;
+    x.axisLineStyle               = nil;
+    x.majorTickLineStyle          = nil;
+    x.minorTickLineStyle          = nil;
+    
+    // Y axis
+    CPTXYAxis *y = axisSet.yAxis;
+    y.labelingPolicy     = CPTAxisLabelingPolicyEqualDivisions;
+    y.majorGridLineStyle = majorGridLineStyle;
+    y.minorGridLineStyle = minorGridLineStyle;
+    y.labelFormatter     = labelFormatter;
+    y.labelTextStyle     = titleStyle;
+    y.minorTicksPerInterval = 0;//sub scale
+    y.preferredNumberOfMajorTicks = 3;
+    y.majorTickLength = 15;
+    y.axisLineStyle               = nil;
+    y.majorTickLineStyle          = nil;
+    y.minorTickLineStyle          = nil;
+
+    
+    // plotData 1 modify
     if (plotData1) {
-        // Data line 画线
+        
+        CPTMutableLineStyle *lineStyle1 = [CPTMutableLineStyle lineStyle];
+        lineStyle1.lineWidth          = 2.0;
+        lineStyle1.lineColor          = _plotColor1;
+        
         CPTScatterPlot *linePlot1 = [[CPTScatterPlot alloc] init];
         linePlot1.identifier = kDataLine1;
         linePlot1.dataLineStyle = lineStyle1;
         linePlot1.interpolation = CPTScatterPlotInterpolationCurved; //曲线
         linePlot1.dataSource = self;
         [graph addPlot:linePlot1];
-        
         
         CPTMutableLineStyle *symbolLineStyle1 = [CPTMutableLineStyle lineStyle];
         symbolLineStyle1.lineColor = _plotColor1;
@@ -232,26 +233,7 @@ static NSString *const kDataLine1    = @"Data Line1";
         plotSymbol1.size      = CGSizeMake(6.0, 6.0);
         linePlot1.plotSymbol = plotSymbol1;
     }
-    
-    // Auto scale the plot space to fit the plot data
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    [plotSpace scaleToFitPlots:@[linePlot]];
-    
-    // Adjust visible ranges so plot symbols along the edges are not clipped
-//    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-//    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-//    
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(21)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-3) length:CPTDecimalFromFloat(35)];
-    
-    
-    x.majorIntervalLength = CPTDecimalFromFloat(20.f/6);
-//
-//    x.orthogonalCoordinateDecimal = yRange.location;
-//    y.orthogonalCoordinateDecimal = xRange.location;
-    
-    NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$$$  %d", plotData.count);
-    
+
 }
 
 #pragma mark -
@@ -259,8 +241,6 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-//    NSLog(@"............ %d  ........... %d", self.plotData.count , self.plotData1.count);
-    
     if ( plot.identifier == kDataLine ) {
         return self.plotData.count;
     }
@@ -274,10 +254,6 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(double)doubleForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
-    
-//    NSLog(@"#################  %d", index);
-    
-    
     double number = NAN;
     
     switch ( fieldEnum ) {

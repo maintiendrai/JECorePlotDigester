@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import <CoreTelephony/CTCarrier.h>
-//#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
 @interface AppDelegate ()
 
@@ -19,12 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    
-//    CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc]init];
-//    CTCarrier *carrier =  [info subscriberCellularProvider];
-////    CTCarrier *carrier = [[CTCarrier alloc]init];
-//    NSLog(@"carrier.carrierName=%@ carrier.mobileCountryCode=%@ carrier.mobileNetworkCode=%@ carrier.isoCountryCode=%@ carrier.allowsVOIP=%d", carrier.carrierName, carrier.mobileCountryCode, carrier.mobileNetworkCode, carrier.isoCountryCode, carrier.allowsVOIP);
-//    
     return YES;
 }
 

@@ -60,20 +60,21 @@ static NSString *const kDataLine1    = @"Data Line1";
         _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];  //红
     }
     
-        [self dataTest];
+//    self.meanValue = 10;
+//        [self dataTest];
 }
 
 
 - (void)dataTest {
     
     if (self.plotData == nil ) {
-        _numberOfPoints = 30;
+        _numberOfPoints = 20;
         NSMutableArray *contentArray = [NSMutableArray array];
         NSMutableArray *contentArray1 = [NSMutableArray array];
         
         double sum = 0.0;
         
-        double args[30] = { 9, 10, 25, 10, 19, 0, 26, 25, 22, 18, 13, 10 ,15, 25, 16, 0, 2, 19, 15, 20, 21, 8, 4, 15, 24, 13, 10, 9, 12, 20};
+        double args[5] = { 9, 10, 25, 10, 19};
         
         
         for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
@@ -95,6 +96,8 @@ static NSString *const kDataLine1    = @"Data Line1";
         self.plotData1 = contentArray1;
         
         self.meanValue = sum / _numberOfPoints;
+        
+        
         
         sum = 0.0;
         for ( NSNumber *value in contentArray ) {
@@ -153,10 +156,11 @@ static NSString *const kDataLine1    = @"Data Line1";
     x.labelTextStyle     = titleStyle;
     x.orthogonalCoordinateDecimal = CPTDecimalFromString (@"0" );
     x.minorTicksPerInterval = 0;//主刻度中显示的细分刻度的数目
-    x.preferredNumberOfMajorTicks = 6;
+    x.preferredNumberOfMajorTicks = 3;
     x.axisLineStyle               = nil;
     x.majorTickLineStyle          = nil;
     x.minorTickLineStyle          = nil;
+//    x.majorIntervalLength = CPTDecimalFromFloat(20.f/6);
     
     
     // Y axis
@@ -169,7 +173,9 @@ static NSString *const kDataLine1    = @"Data Line1";
     y.minorTicksPerInterval = 0;//主刻度中显示的细分刻度的数目
     y.majorTickLength = 15;
     //    y.preferredNumberOfMajorTicks = 3;
-    //    y.minorTicksPerInterval = 20;
+//        y.minorTicksPerInterval = 20;
+    
+//    y.majorIntervalLength = CPTDecimalFromFloat(20);
     y.axisLineStyle               = nil;
     y.majorTickLineStyle          = nil;
     y.minorTickLineStyle          = nil;
@@ -232,16 +238,19 @@ static NSString *const kDataLine1    = @"Data Line1";
     [plotSpace scaleToFitPlots:@[linePlot]];
     
     // Adjust visible ranges so plot symbols along the edges are not clipped
-    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(31)];
+//    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+//    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+//    
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(21)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-3) length:CPTDecimalFromFloat(35)];
     
-    x.orthogonalCoordinateDecimal = yRange.location;
-    y.orthogonalCoordinateDecimal = xRange.location;
     
+    x.majorIntervalLength = CPTDecimalFromFloat(20.f/6);
+//
+//    x.orthogonalCoordinateDecimal = yRange.location;
+//    y.orthogonalCoordinateDecimal = xRange.location;
     
+    NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$$$  %d", plotData.count);
     
 }
 
@@ -250,6 +259,8 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
+//    NSLog(@"............ %d  ........... %d", self.plotData.count , self.plotData1.count);
+    
     if ( plot.identifier == kDataLine ) {
         return self.plotData.count;
     }
@@ -263,6 +274,10 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(double)doubleForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
+    
+//    NSLog(@"#################  %d", index);
+    
+    
     double number = NAN;
     
     switch ( fieldEnum ) {

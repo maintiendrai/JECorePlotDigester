@@ -26,42 +26,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //折线图
-//    PlotItem *plotItem = [[JEControlChart alloc]init];
-//    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 320, 150)];
-//    [self.view addSubview:view];
+//    [self testBarChart];
+    [self testControlChart];
+//    [self testSimplePiechart];
 
+}
+
+//controlchart
+- (void)testControlChart {
+
+    JEControlChart *plotItem = [[JEControlChart alloc]init];
+    NSMutableArray *contentArray = [NSMutableArray array];
     
-//    //饼图 JESimplePieChart:
+    int count = 12;
+    for ( int j = 0; j < count+1; j++ ) {
+        [contentArray addObject:@(0)];
+    }
+    [contentArray replaceObjectAtIndex:3 withObject:@(60)];
+    [contentArray replaceObjectAtIndex:10 withObject:@(90)];
+    
+    plotItem.plotData = contentArray;
+    plotItem.numberOfPoints = 28;
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 320, 120)];
+    [self.view addSubview:view];
+    
+    self.pieChartDetailItem = plotItem;
+    [self.pieChartDetailItem renderInView:view withTheme:nil animated:YES];
+}
+
+//JESimplePie Chart
+- (void)testSimplePiechart {
     PlotItem *plotItem = [[JESimplePieChart alloc]init];
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 400)];
     [self.view addSubview:view];
     
-    
-    
-//
-//    //柱状图 JEBarChart
-//    _barChartDetailItem = [[JEBarChart alloc]init];
-//    UIView *barView = [[UIView alloc]initWithFrame:CGRectMake(0, 200, 320, 200)];
-//    [self.view addSubview:barView];
-//    [_barChartDetailItem renderInView:barView withTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme] animated:YES];
-//    
-//    
-//    //折线图
-//    SNEventGraphView *curvedPlotView = [[SNEventGraphView alloc]initWithFrame:CGRectMake(10, 300, 250, 200) data:nil];
-//    [self.view addSubview:curvedPlotView];
-    
-    
     self.pieChartDetailItem = plotItem;
     [self.pieChartDetailItem renderInView:view withTheme:nil animated:YES];
-    
-//    UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-//    view1.center = view.center;
-//    view1.backgroundColor = [UIColor redColor];
-    
-//    [view addSubview:view1];
+}
 
-    // Do any additional setup after loading the view, typically from a nib.
+//JEBarChart
+- (void)testBarChart {
+    PlotItem *plotItem  = [[JEBarChart alloc]init];
+    UIView *barView = [[UIView alloc]initWithFrame:CGRectMake(0, 200, 320, 200)];
+    [self.view addSubview:barView];
+    [_barChartDetailItem renderInView:barView withTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme] animated:YES];
+
+    self.pieChartDetailItem = plotItem;
+    [self.pieChartDetailItem renderInView:barView withTheme:nil animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

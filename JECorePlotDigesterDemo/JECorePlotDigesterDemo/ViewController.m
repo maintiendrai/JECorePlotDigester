@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "CurvedScatterPlot.h"
 #import "JESimplePieChart.h"
 #import "JEBarChart.h"
 #import "JECurvedPlotView.h"

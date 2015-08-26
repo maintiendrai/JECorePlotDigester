@@ -55,11 +55,18 @@ static NSString *const kDataLine1    = @"Data Line1";
 -(void)generateData
 {
     if (!_plotColor) {
+        // [CPTColor colorWithComponentRed:0/255 green:177/255.0 blue:255/255.0 alpha:1];   //蓝色
         _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];   //绿
         _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];  //红
     }
     
-    if (self.plotData == nil) {
+        [self dataTest];
+}
+
+
+- (void)dataTest {
+    
+    if (self.plotData == nil ) {
         _numberOfPoints = 30;
         NSMutableArray *contentArray = [NSMutableArray array];
         NSMutableArray *contentArray1 = [NSMutableArray array];
@@ -86,9 +93,9 @@ static NSString *const kDataLine1    = @"Data Line1";
         
         
         self.plotData1 = contentArray1;
-
+        
         self.meanValue = sum / _numberOfPoints;
-
+        
         sum = 0.0;
         for ( NSNumber *value in contentArray ) {
             double error = [value doubleValue] - self.meanValue;
@@ -97,6 +104,7 @@ static NSString *const kDataLine1    = @"Data Line1";
         double stdDev = sqrt( ( 1.0 / (_numberOfPoints - 1) ) * sum );
         self.standardError = stdDev / sqrt(_numberOfPoints);
     }
+    
 }
 
 -(void)renderInGraphHostingView:(CPTGraphHostingView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated
@@ -175,8 +183,8 @@ static NSString *const kDataLine1    = @"Data Line1";
     CPTMutableLineStyle *lineStyle1 = [CPTMutableLineStyle lineStyle];
     lineStyle1.lineWidth          = 2.0;
     lineStyle1.lineColor          = _plotColor1;
-//    lineStyle1.lineColor          = [CPTColor redColor];
-//    lineStyle1.lineGradient       = [CPTGradient fadeinfadeoutGradient];
+    //    lineStyle1.lineColor          = [CPTColor redColor];
+    //    lineStyle1.lineGradient       = [CPTGradient fadeinfadeoutGradient];
     
     
     // Data line 画线
@@ -190,18 +198,6 @@ static NSString *const kDataLine1    = @"Data Line1";
     linePlot.dataSource = self;
     [graph addPlot:linePlot];
     
-    
-    // Data line 画线
-    CPTScatterPlot *linePlot1 = [[CPTScatterPlot alloc] init];
-    linePlot1.identifier = kDataLine1;
-    linePlot1.dataLineStyle = lineStyle1;
-    linePlot1.interpolation = CPTScatterPlotInterpolationCurved; //曲线
-    
-    
-    linePlot1.dataSource = self;
-    [graph addPlot:linePlot1];
-    
-    
     // Add plot symbols
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
     symbolLineStyle.lineColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
@@ -212,14 +208,24 @@ static NSString *const kDataLine1    = @"Data Line1";
     linePlot.plotSymbol  = plotSymbol;
     
     
-    CPTMutableLineStyle *symbolLineStyle1 = [CPTMutableLineStyle lineStyle];
-    symbolLineStyle1.lineColor = _plotColor1;
-    CPTPlotSymbol *plotSymbol1 = [CPTPlotSymbol ellipsePlotSymbol];
-    plotSymbol1.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
-    plotSymbol1.lineStyle = symbolLineStyle1;
-    plotSymbol1.size      = CGSizeMake(6.0, 6.0);
-    linePlot1.plotSymbol = plotSymbol1;
-    
+    if (plotData1) {
+        // Data line 画线
+        CPTScatterPlot *linePlot1 = [[CPTScatterPlot alloc] init];
+        linePlot1.identifier = kDataLine1;
+        linePlot1.dataLineStyle = lineStyle1;
+        linePlot1.interpolation = CPTScatterPlotInterpolationCurved; //曲线
+        linePlot1.dataSource = self;
+        [graph addPlot:linePlot1];
+        
+        
+        CPTMutableLineStyle *symbolLineStyle1 = [CPTMutableLineStyle lineStyle];
+        symbolLineStyle1.lineColor = _plotColor1;
+        CPTPlotSymbol *plotSymbol1 = [CPTPlotSymbol ellipsePlotSymbol];
+        plotSymbol1.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
+        plotSymbol1.lineStyle = symbolLineStyle1;
+        plotSymbol1.size      = CGSizeMake(6.0, 6.0);
+        linePlot1.plotSymbol = plotSymbol1;
+    }
     
     // Auto scale the plot space to fit the plot data
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;

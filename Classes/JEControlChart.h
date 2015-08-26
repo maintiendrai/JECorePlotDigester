@@ -14,6 +14,8 @@ typedef UIView PlotGalleryNativeView;
 
 @property (nonatomic, readwrite, strong) NSArray *plotData;
 @property (nonatomic, readwrite, strong) NSArray *plotData1;
+@property (nonatomic, strong) CPTColor* plotColor;
+@property (nonatomic, strong) CPTColor* plotColor1;
 
 @property (nonatomic, assign) NSUInteger numberOfPoints;
 

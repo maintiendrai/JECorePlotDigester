@@ -54,6 +54,49 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(void)generateData
 {
+    if (!_plotColor) {
+        _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];   //绿
+        _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];  //红
+    }
+    
+    if (self.plotData == nil) {
+        _numberOfPoints = 30;
+        NSMutableArray *contentArray = [NSMutableArray array];
+        NSMutableArray *contentArray1 = [NSMutableArray array];
+        
+        double sum = 0.0;
+        
+        double args[30] = { 9, 10, 25, 10, 19, 0, 26, 25, 22, 18, 13, 10 ,15, 25, 16, 0, 2, 19, 15, 20, 21, 8, 4, 15, 24, 13, 10, 9, 12, 20};
+        
+        
+        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
+            double y = args[i];
+            sum += y;
+            [contentArray addObject:@(y)];
+        }
+        
+        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
+            double y = args[_numberOfPoints-1-i];
+            sum += y;
+            [contentArray1 addObject:@(y)];
+        }
+        
+        
+        self.plotData = contentArray;
+        
+        
+        self.plotData1 = contentArray1;
+
+        self.meanValue = sum / _numberOfPoints;
+
+        sum = 0.0;
+        for ( NSNumber *value in contentArray ) {
+            double error = [value doubleValue] - self.meanValue;
+            sum += error * error;
+        }
+        double stdDev = sqrt( ( 1.0 / (_numberOfPoints - 1) ) * sum );
+        self.standardError = stdDev / sqrt(_numberOfPoints);
+    }
 }
 
 -(void)renderInGraphHostingView:(CPTGraphHostingView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated
@@ -125,14 +168,15 @@ static NSString *const kDataLine1    = @"Data Line1";
     
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.lineWidth          = 2.0;
-    lineStyle.lineColor          = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
+    lineStyle.lineColor          = _plotColor;
     //    lineStyle.lineGradient       = [CPTGradient fadeinfadeoutGradient];
     
     
     CPTMutableLineStyle *lineStyle1 = [CPTMutableLineStyle lineStyle];
     lineStyle1.lineWidth          = 2.0;
-    lineStyle1.lineColor          = [CPTColor redColor];
-    lineStyle1.lineGradient       = [CPTGradient fadeinfadeoutGradient];
+    lineStyle1.lineColor          = _plotColor1;
+//    lineStyle1.lineColor          = [CPTColor redColor];
+//    lineStyle1.lineGradient       = [CPTGradient fadeinfadeoutGradient];
     
     
     // Data line 画线
@@ -155,7 +199,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     
     
     linePlot1.dataSource = self;
-    //    [graph addPlot:linePlot1];
+    [graph addPlot:linePlot1];
     
     
     // Add plot symbols
@@ -167,7 +211,14 @@ static NSString *const kDataLine1    = @"Data Line1";
     plotSymbol.size      = CGSizeMake(6.0, 6.0);
     linePlot.plotSymbol  = plotSymbol;
     
-    linePlot1.plotSymbol = plotSymbol;
+    
+    CPTMutableLineStyle *symbolLineStyle1 = [CPTMutableLineStyle lineStyle];
+    symbolLineStyle1.lineColor = _plotColor1;
+    CPTPlotSymbol *plotSymbol1 = [CPTPlotSymbol ellipsePlotSymbol];
+    plotSymbol1.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    plotSymbol1.lineStyle = symbolLineStyle1;
+    plotSymbol1.size      = CGSizeMake(6.0, 6.0);
+    linePlot1.plotSymbol = plotSymbol1;
     
     
     // Auto scale the plot space to fit the plot data

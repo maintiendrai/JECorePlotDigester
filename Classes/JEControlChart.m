@@ -10,6 +10,7 @@
 #import "JEControlChart.h"
 #import "CPTGradient+Extends.h"
 #import "JEGraphTheme.h"
+#define N 5
 
 static NSString *const kDataLine    = @"Data Line";
 static NSString *const kDataLine1    = @"Data Line1";
@@ -50,6 +51,10 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(void)generateData
 {
+    
+    _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
+    _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];
+
     if (self.plotData) {
         self.toplevel = [((NSNumber *)self.plotData[0]) intValue];
         for (NSInteger i=0; i<self.plotData.count; i++) {
@@ -74,19 +79,20 @@ static NSString *const kDataLine1    = @"Data Line1";
         
         double sum = 0.0;
         
-        double args[5] = { 9, 10, 25, 10, 19};
+        double args[N] = { 9, 10, 25, 10, 19};
         
         self.toplevel = args[0];
-        for (NSUInteger i = 0; i<sizeof(args); i++) {
+        
+        for (NSUInteger i=0; i<N; i++) {
             self.toplevel = self.toplevel<args[i] ? args[i] : self.toplevel;
             double y = args[i];
             sum += y;
             [contentArray addObject:@(y)];
         }
         
-        for ( NSUInteger i = 0; i < _numberOfPoints; i++ ) {
+        for ( NSUInteger i=0; i<N; i++ ) {
             self.toplevel = self.toplevel<args[i] ? args[i] : self.toplevel;
-            double y = args[_numberOfPoints-1-i];
+            double y = args[sizeof(args)-1-i];
             sum += y;
             [contentArray1 addObject:@(y)];
         }
@@ -108,7 +114,6 @@ static NSString *const kDataLine1    = @"Data Line1";
         double stdDev = sqrt( ( 1.0 / (_numberOfPoints - 1) ) * sum );
         self.standardError = stdDev / sqrt(_numberOfPoints);
     }
-    
 }
 
 - (void)renderInGraphHostingView:(CPTGraphHostingView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated
@@ -156,11 +161,9 @@ static NSString *const kDataLine1    = @"Data Line1";
     //Auto scale the plot space to fit the plot data
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     [plotSpace scaleToFitPlots:@[linePlot]];
-    NSLog(@"nuberof points %d  ........ tolevel  %d", self.numberOfPoints, self.toplevel);
     
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(self.numberOfPoints+1)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-3) length:CPTDecimalFromFloat(self.toplevel+10)];
-    
     
     // Grid line styles
     CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];

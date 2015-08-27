@@ -51,9 +51,13 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 -(void)generateData
 {
+    if (!_plotColor) {
+        _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
+    }
+    if (!_plotColor1) {
+        _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];
+    }
     
-    _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
-    _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];
     
     if (self.plotData) {
         self.toplevel = [((NSNumber *)self.plotData[0]) intValue];
@@ -149,7 +153,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     
     // Add plot symbols
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
-    symbolLineStyle.lineColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
+    symbolLineStyle.lineColor = _plotColor;
     CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
     plotSymbol.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
     plotSymbol.lineStyle = symbolLineStyle;

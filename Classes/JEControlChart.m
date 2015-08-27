@@ -54,17 +54,15 @@ static NSString *const kDataLine1    = @"Data Line1";
     
     _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
     _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];
-
+    
     if (self.plotData) {
         self.toplevel = [((NSNumber *)self.plotData[0]) intValue];
         for (NSInteger i=0; i<self.plotData.count; i++) {
             int tmp = [((NSNumber *)self.plotData[i]) intValue];
             self.toplevel = (self.toplevel < tmp) ? tmp : self.toplevel;
         }
-    } else {
-        _plotColor = [CPTColor colorWithComponentRed:0/255 green:185/255.0 blue:163/255.0 alpha:1];
-        _plotColor1 = [CPTColor colorWithComponentRed:255/255 green:25/255.0 blue:0/255.0 alpha:1];
-        [self dataTest];
+//    } else {
+//        [self dataTest];
     }
     
 }
@@ -124,6 +122,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     CGRect bounds = NSRectToCGRect(hostingView.bounds);
 #endif
     
+    
     CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:bounds];
     [self addGraph:graph toHostingView:hostingView];
     
@@ -135,7 +134,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.lineWidth          = 2.0;
     lineStyle.lineColor          = _plotColor;
-
+    
     
     //Data line
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
@@ -163,7 +162,8 @@ static NSString *const kDataLine1    = @"Data Line1";
     [plotSpace scaleToFitPlots:@[linePlot]];
     
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(self.numberOfPoints+1)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-3) length:CPTDecimalFromFloat(self.toplevel+10)];
+    
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1) length:CPTDecimalFromFloat(self.toplevel+5)];
     
     // Grid line styles
     CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
@@ -212,7 +212,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     y.axisLineStyle               = nil;
     y.majorTickLineStyle          = nil;
     y.minorTickLineStyle          = nil;
-
+    
     
     // plotData 1 modify
     if (plotData1) {
@@ -236,7 +236,7 @@ static NSString *const kDataLine1    = @"Data Line1";
         plotSymbol1.size      = CGSizeMake(6.0, 6.0);
         linePlot1.plotSymbol = plotSymbol1;
     }
-
+    
 }
 
 #pragma mark -

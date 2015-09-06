@@ -179,11 +179,14 @@
     [self.plotColor addObject:[CPTColor colorWithComponentRed:250/255.0 green:158/255.0 blue:0/255.0 alpha:1]];
     [self.plotColor addObject:[CPTColor colorWithComponentRed:148/255.0 green:246/255.0 blue:133/255.0 alpha:1]];
     [self.plotColor addObject:[CPTColor colorWithComponentRed:80/255.0 green:192/255.0 blue:232/255.0 alpha:1]];
+    
+//    [self.plotColor addObject:[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]];
 }
 
 
 -(CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)idx
 {
+    
     if (idx < self.plotColor.count) {
         return [[CPTFill alloc]initWithColor:(CPTColor*)self.plotColor[idx]];
     } else {

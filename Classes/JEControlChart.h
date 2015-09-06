@@ -10,7 +10,7 @@
 #import "PlotItem.h"
 typedef UIView PlotGalleryNativeView;
 
-@interface JEControlChart : PlotItem<CPTPlotDataSource>
+@interface JEControlChart : PlotItem<CPTPlotDataSource, CPTScatterPlotDataSource>
 
 @property (nonatomic, readwrite, strong) NSArray *plotData;
 @property (nonatomic, readwrite, strong) NSArray *plotData1;

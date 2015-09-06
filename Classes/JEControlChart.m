@@ -151,15 +151,6 @@ static NSString *const kDataLine1    = @"Data Line1";
     linePlot.dataSource = self;
     [graph addPlot:linePlot];
     
-    // Add plot symbols
-    CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
-    symbolLineStyle.lineColor = _plotColor;
-    CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
-    plotSymbol.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
-    plotSymbol.lineStyle = symbolLineStyle;
-    plotSymbol.size      = CGSizeMake(6.0, 6.0);
-    linePlot.plotSymbol  = plotSymbol;
-    
     
     //Auto scale the plot space to fit the plot data
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
@@ -282,6 +273,30 @@ static NSString *const kDataLine1    = @"Data Line1";
     }
     
     return number;
+}
+
+-(CPTPlotSymbol *)symbolForScatterPlot:(CPTScatterPlot *)plot recordIndex:(NSUInteger)idx
+{
+    CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
+    symbolLineStyle.lineColor = _plotColor;
+    CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
+    plotSymbol.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    plotSymbol.lineStyle = symbolLineStyle;
+    plotSymbol.size      = CGSizeMake(6.0, 6.0);
+    
+    if (plot.identifier == kDataLine) {
+        if (idx == 0 || plotData.count == idx+1) {
+            return plotSymbol;
+        }
+    }
+    
+    if (plot.identifier == kDataLine1) {
+        if (idx == 0 || plotData1.count == idx+1) {
+            return plotSymbol;
+        }
+    }
+    
+    return nil;
 }
 
 @end

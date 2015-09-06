@@ -222,14 +222,7 @@ static NSString *const kDataLine1    = @"Data Line1";
         linePlot1.interpolation = CPTScatterPlotInterpolationCurved; //曲线
         linePlot1.dataSource = self;
         [graph addPlot:linePlot1];
-        
-        CPTMutableLineStyle *symbolLineStyle1 = [CPTMutableLineStyle lineStyle];
-        symbolLineStyle1.lineColor = _plotColor1;
-        CPTPlotSymbol *plotSymbol1 = [CPTPlotSymbol ellipsePlotSymbol];
-        plotSymbol1.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
-        plotSymbol1.lineStyle = symbolLineStyle1;
-        plotSymbol1.size      = CGSizeMake(6.0, 6.0);
-        linePlot1.plotSymbol = plotSymbol1;
+    
     }
     
 }
@@ -284,6 +277,14 @@ static NSString *const kDataLine1    = @"Data Line1";
     plotSymbol.lineStyle = symbolLineStyle;
     plotSymbol.size      = CGSizeMake(6.0, 6.0);
     
+    CPTMutableLineStyle *symbolLineStyle1 = [CPTMutableLineStyle lineStyle];
+    symbolLineStyle1.lineColor = _plotColor1;
+    CPTPlotSymbol *plotSymbol1 = [CPTPlotSymbol ellipsePlotSymbol];
+    plotSymbol1.fill      = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    plotSymbol1.lineStyle = symbolLineStyle1;
+    plotSymbol1.size      = CGSizeMake(6.0, 6.0);
+
+    
     if (plot.identifier == kDataLine) {
         if (idx == 0 || plotData.count == idx+1) {
             return plotSymbol;
@@ -292,7 +293,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     
     if (plot.identifier == kDataLine1) {
         if (idx == 0 || plotData1.count == idx+1) {
-            return plotSymbol;
+            return plotSymbol1;
         }
     }
     

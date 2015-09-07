@@ -47,6 +47,7 @@
 {
     if ( self.plotData == nil ) {
         self.plotData = @[@20.0, @30.0, @60.0];
+//        self.plotColor = [CPTColor colorWithComponentRed:80/255.0 green:192/255.0 blue:232/255.0 alpha:1];
     }
 }
 
@@ -71,15 +72,29 @@
     piePlot.dataSource = self;
     piePlot.pieRadius  = MIN( CPTFloat(0.7) * (hostingView.frame.size.height - CPTFloat(2.0) * graph.paddingLeft) / CPTFloat(2.0),
                              CPTFloat(0.4) * (hostingView.frame.size.width - CPTFloat(2.0) * graph.paddingTop) / CPTFloat(2.0) );
+    
+    piePlot.overlayFill    = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]];
+    
     piePlot.identifier     = self.title;
-    piePlot.startAngle     = CPTFloat(M_PI_4);
+    piePlot.startAngle     = CPTFloat(0);
+
     piePlot.sliceDirection = CPTPieDirectionCounterClockwise;
     piePlot.pieInnerRadius = self.pieInnerRadius ? self.pieInnerRadius : 70;
     
     
-    
     piePlot.delegate = self;
     [graph addPlot:piePlot];
+    
+    if ( animated ) {
+        [CPTAnimation animate:piePlot
+                     property:@"startAngle"
+                         from:CPTFloat(M_PI_4)
+                           to:CPTFloat(M_PI)
+                     duration:0.25
+                    withDelay:0.5
+               animationCurve:CPTAnimationCurveLinear
+                     delegate:self];
+    }
 }
 
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
@@ -210,5 +225,33 @@
         }
     }
 }
+
+#pragma mark -
+#pragma mark Animation Delegate
+
+-(void)animationDidStart:(id)operation
+{
+    if (self.plotData.count == 3) {
+        return;
+    }
+    ((CPTPieChart*)((CPTAnimationOperation*)operation).boundObject).overlayFill = nil;
+}
+
+-(void)animationDidFinish:(CPTAnimationOperation *)operation
+{
+}
+
+-(void)animationCancelled:(CPTAnimationOperation *)operation
+{
+}
+
+-(void)animationWillUpdate:(CPTAnimationOperation *)operation
+{
+}
+
+-(void)animationDidUpdate:(CPTAnimationOperation *)operation
+{
+}
+
 
 @end

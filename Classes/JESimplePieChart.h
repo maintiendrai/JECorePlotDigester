@@ -12,7 +12,8 @@ typedef UIView PlotGalleryNativeView;
 @interface JESimplePieChart : PlotItem<CPTPlotSpaceDelegate,
 CPTPieChartDelegate,
 CPTLegendDelegate,
-CPTPlotDataSource>
+CPTPlotDataSource,
+CPTAnimationDelegate>
 
 /*
  *  plotData传递的必须是数字的数组

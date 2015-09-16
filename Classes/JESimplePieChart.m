@@ -35,6 +35,7 @@
 {
     if ( (self = [super init]) ) {
         [self digesterColor];
+        _noneTag = NO;
     }
     
     return self;
@@ -48,9 +49,9 @@
 -(void)generateData
 {
     if ( self.plotData == nil ) {
-        self.plotData = @[@20.0];
         _noneTag = YES;
-        self.plotColor = [NSMutableArray arrayWithArray: @[[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]]];
+        self.plotData = @[@20.0, @30.0, @60.0, @10.0, @10.0, @10.0, @10.0, @10.0, @10.0, @10.0];
+        //        self.plotColor = [CPTColor colorWithComponentRed:80/255.0 green:192/255.0 blue:232/255.0 alpha:1];
     } else {
         _noneTag = NO;
     }
@@ -82,7 +83,7 @@
     
     piePlot.identifier     = self.title;
     piePlot.startAngle     = CPTFloat(0);
-
+    
     piePlot.sliceDirection = CPTPieDirectionCounterClockwise;
     piePlot.pieInnerRadius = self.pieInnerRadius ? self.pieInnerRadius : 70;
     
@@ -93,10 +94,10 @@
     if ( animated ) {
         [CPTAnimation animate:piePlot
                      property:@"startAngle"
-                         from:CPTFloat(M_PI)
+                         from:CPTFloat(M_PI_4)
                            to:CPTFloat(M_PI)
-                     duration:0
-                    withDelay:0
+                     duration:0.25
+                    withDelay:0.5
                animationCurve:CPTAnimationCurveLinear
                      delegate:self];
     }
@@ -177,10 +178,10 @@
 {
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
     UIColor *sliceColor = [CPTPieChart defaultPieSliceColorForIndex:index].uiColor;
-//    UIFont *labelFont   = [UIFont fontWithName:@"Helvetica" size:self.titleSize * CPTFloat(0.5)];
+    //    UIFont *labelFont   = [UIFont fontWithName:@"Helvetica" size:self.titleSize * CPTFloat(0.5)];
 #else
     NSColor *sliceColor = [CPTPieChart defaultPieSliceColorForIndex:index].nsColor;
-//    NSFont *labelFont   = [NSFont fontWithName:@"Helvetica" size:self.titleSize * CPTFloat(0.5)];
+    //    NSFont *labelFont   = [NSFont fontWithName:@"Helvetica" size:self.titleSize * CPTFloat(0.5)];
 #endif
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Pie Slice %lu", (unsigned long)index]];
@@ -200,7 +201,7 @@
     [self.plotColor addObject:[CPTColor colorWithComponentRed:148/255.0 green:246/255.0 blue:133/255.0 alpha:1]];
     [self.plotColor addObject:[CPTColor colorWithComponentRed:80/255.0 green:192/255.0 blue:232/255.0 alpha:1]];
     
-//    [self.plotColor addObject:[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]];
+    //    [self.plotColor addObject:[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]];
 }
 
 
@@ -236,8 +237,8 @@
 
 -(void)animationDidStart:(id)operation
 {
-    if (_noneTag) {
-        return ;
+    if (self.plotData.count == 10 || _noneTag == YES) {
+        return;
     }
     ((CPTPieChart*)((CPTAnimationOperation*)operation).boundObject).overlayFill = nil;
 }

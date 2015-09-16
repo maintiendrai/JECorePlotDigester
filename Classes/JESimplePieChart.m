@@ -9,7 +9,9 @@
 #import "JESimplePieChart.h"
 #import "JEGraphTheme.h"
 
-@interface JESimplePieChart()
+@interface JESimplePieChart() {
+    BOOL _noneTag;
+}
 
 
 @property (nonatomic, readwrite) NSUInteger offsetIndex;
@@ -47,7 +49,10 @@
 {
     if ( self.plotData == nil ) {
         self.plotData = @[@20.0];
+        _noneTag = YES;
         self.plotColor = [NSMutableArray arrayWithArray: @[[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]]];
+    } else {
+        _noneTag = NO;
     }
 }
 
@@ -231,6 +236,9 @@
 
 -(void)animationDidStart:(id)operation
 {
+    if (_noneTag) {
+        return ;
+    }
     ((CPTPieChart*)((CPTAnimationOperation*)operation).boundObject).overlayFill = nil;
 }
 

@@ -26,8 +26,8 @@
     [super viewDidLoad];
     
 //    [self testBarChart];
-    [self testControlChart];
-//    [self testSimplePiechart];
+//    [self testControlChart];
+    [self testSimplePiechart];
 
 }
 
@@ -37,17 +37,20 @@
     JEControlChart *plotItem = [[JEControlChart alloc]init];
     NSMutableArray *contentArray = [NSMutableArray array];
     
-    int count = 12;
+    int count = 31;
     for ( int j = 0; j < count+1; j++ ) {
         [contentArray addObject:@(0)];
     }
-    [contentArray replaceObjectAtIndex:3 withObject:@(60)];
-    [contentArray replaceObjectAtIndex:10 withObject:@(90)];
+//    [contentArray replaceObjectAtIndex:1 withObject:@(5)];
+//    [contentArray replaceObjectAtIndex:10 withObject:@(100)];
     
     plotItem.plotData = contentArray;
-    plotItem.numberOfPoints = 28;
+    plotItem.numberOfPoints = 31;
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 320, 120)];
+    plotItem.plotData1 = contentArray;
+    plotItem.numberOfPoints = 31;
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 320, 150)];
     [self.view addSubview:view];
     
     self.pieChartDetailItem = plotItem;
@@ -59,6 +62,8 @@
     PlotItem *plotItem = [[JESimplePieChart alloc]init];
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 400)];
     [self.view addSubview:view];
+    
+//    ((JESimplePieChart*)plotItem).plotData = @[@20.0, @30.0, @60.0];
     
     self.pieChartDetailItem = plotItem;
     [self.pieChartDetailItem renderInView:view withTheme:nil animated:YES];

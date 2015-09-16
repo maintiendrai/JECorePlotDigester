@@ -46,8 +46,8 @@
 -(void)generateData
 {
     if ( self.plotData == nil ) {
-        self.plotData = @[@20.0, @30.0, @60.0];
-//        self.plotColor = [CPTColor colorWithComponentRed:80/255.0 green:192/255.0 blue:232/255.0 alpha:1];
+        self.plotData = @[@20.0];
+        self.plotColor = [NSMutableArray arrayWithArray: @[[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]]];
     }
 }
 
@@ -88,10 +88,10 @@
     if ( animated ) {
         [CPTAnimation animate:piePlot
                      property:@"startAngle"
-                         from:CPTFloat(M_PI_4)
+                         from:CPTFloat(M_PI)
                            to:CPTFloat(M_PI)
-                     duration:0.25
-                    withDelay:0.5
+                     duration:0
+                    withDelay:0
                animationCurve:CPTAnimationCurveLinear
                      delegate:self];
     }
@@ -231,9 +231,6 @@
 
 -(void)animationDidStart:(id)operation
 {
-    if (self.plotData.count == 3) {
-        return;
-    }
     ((CPTPieChart*)((CPTAnimationOperation*)operation).boundObject).overlayFill = nil;
 }
 

@@ -63,7 +63,7 @@
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 400)];
     [self.view addSubview:view];
     
-//    ((JESimplePieChart*)plotItem).plotData = @[@20.0, @30.0, @60.0];
+    ((JESimplePieChart*)plotItem).plotData = @[@20.0, @30.0, @60.0];
     
     self.pieChartDetailItem = plotItem;
     [self.pieChartDetailItem renderInView:view withTheme:nil animated:YES];

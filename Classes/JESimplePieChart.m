@@ -50,7 +50,7 @@
 {
     if ( self.plotData == nil ) {
         _noneTag = YES;
-        self.plotData = @[@20.0, @30.0, @60.0, @10.0, @10.0, @10.0, @10.0, @10.0, @10.0, @10.0];
+        self.plotData = @[@20.0];
         //        self.plotColor = [CPTColor colorWithComponentRed:80/255.0 green:192/255.0 blue:232/255.0 alpha:1];
     } else {
         _noneTag = NO;
@@ -94,10 +94,10 @@
     if ( animated ) {
         [CPTAnimation animate:piePlot
                      property:@"startAngle"
-                         from:CPTFloat(M_PI_4)
+                         from:CPTFloat(M_PI)
                            to:CPTFloat(M_PI)
-                     duration:0.25
-                    withDelay:0.5
+                     duration:0
+                    withDelay:0
                animationCurve:CPTAnimationCurveLinear
                      delegate:self];
     }
@@ -237,7 +237,7 @@
 
 -(void)animationDidStart:(id)operation
 {
-    if (self.plotData.count == 10 || _noneTag == YES) {
+    if (_noneTag == YES) {
         return;
     }
     ((CPTPieChart*)((CPTAnimationOperation*)operation).boundObject).overlayFill = nil;

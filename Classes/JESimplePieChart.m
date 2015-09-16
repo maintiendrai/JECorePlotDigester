@@ -79,7 +79,7 @@
     piePlot.pieRadius  = MIN( CPTFloat(0.7) * (hostingView.frame.size.height - CPTFloat(2.0) * graph.paddingLeft) / CPTFloat(2.0),
                              CPTFloat(0.4) * (hostingView.frame.size.width - CPTFloat(2.0) * graph.paddingTop) / CPTFloat(2.0) );
     
-    piePlot.overlayFill    = _noneTag ? nil : [CPTFill fillWithColor:[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]];
+    piePlot.overlayFill    = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]];
     
     piePlot.identifier     = self.title;
     piePlot.startAngle     = CPTFloat(0);
@@ -91,16 +91,16 @@
     piePlot.delegate = self;
     [graph addPlot:piePlot];
     
-    //    if ( animated ) {
-    //        [CPTAnimation animate:piePlot
-    //                     property:@"startAngle"
-    //                         from:CPTFloat(M_PI)
-    //                           to:CPTFloat(M_PI)
-    //                     duration:0
-    //                    withDelay:0
-    //               animationCurve:CPTAnimationCurveLinear
-    //                     delegate:self];
-    //    }
+    if ( animated ) {
+        [CPTAnimation animate:piePlot
+                     property:@"startAngle"
+                         from:CPTFloat(M_PI)
+                           to:CPTFloat(M_PI)
+                     duration:0
+                    withDelay:0
+               animationCurve:CPTAnimationCurveLinear
+                     delegate:self];
+    }
 }
 
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
@@ -113,10 +113,13 @@
 
 -(void)plot:(CPTPlot *)plot dataLabelWasSelectedAtRecordIndex:(NSUInteger)index
 {
+    NSLog(@"Data label for '%@' was selected at index %d.", plot.identifier, (int)index);
 }
 
 -(void)pieChart:(CPTPieChart *)plot sliceWasSelectedAtRecordIndex:(NSUInteger)index
 {
+    NSLog(@"Slice was selected at index %d. Value = %f", (int)index, [self.plotData[index] floatValue]);
+    
     self.offsetIndex = NSNotFound;
     
     NSMutableArray *newData = [[NSMutableArray alloc] init];
@@ -124,6 +127,7 @@
     for ( NSUInteger i = 1; i < dataCount; i++ ) {
         [newData addObject:@(100.0 * arc4random() / (double)UINT32_MAX)];
     }
+    NSLog(@"newData: %@", newData);
     
     self.plotData = newData;
     
@@ -135,6 +139,8 @@
 
 -(void)legend:(CPTLegend *)legend legendEntryForPlot:(CPTPlot *)plot wasSelectedAtIndex:(NSUInteger)idx
 {
+    NSLog(@"Legend entry for '%@' was selected at index %lu.", plot.identifier, (unsigned long)idx);
+    
     [CPTAnimation animate:self
                  property:@"sliceOffset"
                      from:(idx == self.offsetIndex ? NAN : 0.0)

@@ -65,8 +65,12 @@ static NSString *const kDataLine1    = @"Data Line1";
             int tmp = [((NSNumber *)self.plotData[i]) intValue];
             self.toplevel = (self.toplevel < tmp) ? tmp : self.toplevel;
         }
-        //    } else {
-        //        [self dataTest];
+    }
+    if (self.plotData1) {
+        for (NSInteger i=0; i<self.plotData.count; i++) {
+            int tmp = [((NSNumber *)self.plotData1[i]) intValue];
+            self.toplevel = (self.toplevel < tmp) ? tmp : self.toplevel;
+        }
     }
     
 }

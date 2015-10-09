@@ -56,6 +56,7 @@ extern NSString *const kFinancialPlots;
 
 -(void)addGraph:(CPTGraph *)graph;
 -(void)addGraph:(CPTGraph *)graph toHostingView:(CPTGraphHostingView *)hostingView;
+-(void)killGraph;
 -(void)killPlotGroup;
 
 -(void)generateData;

@@ -96,6 +96,13 @@ NSString *const kFinancialPlots = @"Financial Plots";
     [self.graphs removeAllObjects];
 }
 
+-(void)killPlotGroup {
+    CPTGraphHostingView *hostingView = self.defaultLayerHostingView;
+    if ( hostingView ) {
+        hostingView.hostedGraph.plotAreaFrame.plotGroup = nil;
+    }
+}
+
 -(void)dealloc
 {
     [self killGraph];

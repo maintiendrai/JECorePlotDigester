@@ -46,7 +46,9 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 - (void)reloadData
 {
-    [self renderInView:self.hostView withTheme:nil animated:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self reloadInView:self.hostView withTheme:nil animated:YES];
+    });
 }
 
 -(void)generateData

@@ -41,6 +41,7 @@ extern NSString *const kFinancialPlots;
 +(void)registerPlotItem:(id)item;
 
 -(void)renderInView:(PlotGalleryNativeView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated;
+-(void)reloadInView:(PlotGalleryNativeView *)inView withTheme:(CPTTheme *)theme animated:(BOOL)animated;
 -(CPTNativeImage *)image;
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
 #else

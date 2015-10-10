@@ -22,6 +22,7 @@ NSString *const kFinancialPlots = @"Financial Plots";
 @interface PlotItem()
 
 @property (nonatomic, readwrite, strong) CPTNativeImage *cachedImage;
+@property (nonatomic, strong) CPTGraphHostingView *theHostingView;
 
 @end
 
@@ -399,6 +400,20 @@ NSString *const kFinancialPlots = @"Financial Plots";
     [self formatAllGraphs];
 
     self.defaultLayerHostingView = hostingView;
+}
+
+-(void)reloadInView:(PlotGalleryNativeView *)inView withTheme:(CPTTheme *)theme animated:(BOOL)animated
+{
+    if (!_theHostingView) {
+        _theHostingView = [[CPTGraphHostingView alloc] initWithFrame:inView.bounds];
+        [inView addSubview:_theHostingView];
+        
+    }
+    [self generateData];
+    [self renderInGraphHostingView:_theHostingView withTheme:theme animated:animated];
+    [self formatAllGraphs];
+    self.defaultLayerHostingView = _theHostingView;
+    
 }
 
 -(void)renderInGraphHostingView:(CPTGraphHostingView *)hostingView withTheme:(CPTTheme *)theme animated:(BOOL)animated

@@ -63,13 +63,15 @@ static NSString *const kDataLine1    = @"Data Line1";
     
     if (self.plotData) {
         self.toplevel = [((NSNumber *)self.plotData[0]) intValue];
-        for (NSInteger i=0; i<self.plotData.count; i++) {
+        NSInteger count = self.plotData.count;
+        for (NSInteger i=0; i<count; i++) {
             int tmp = [((NSNumber *)self.plotData[i]) intValue];
             self.toplevel = (self.toplevel < tmp) ? tmp : self.toplevel;
         }
     }
     if (self.plotData1) {
-        for (NSInteger i=0; i<self.plotData.count; i++) {
+        NSInteger count = self.plotData1.count;
+        for (NSInteger i=0; i<count; i++) {
             int tmp = [((NSNumber *)self.plotData1[i]) intValue];
             self.toplevel = (self.toplevel < tmp) ? tmp : self.toplevel;
         }

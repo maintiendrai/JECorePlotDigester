@@ -46,9 +46,7 @@ static NSString *const kDataLine1    = @"Data Line1";
 
 - (void)reloadData
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self reloadInView:self.hostView withTheme:nil animated:YES];
-    });
+    [self reloadInView:self.hostView withTheme:nil animated:YES];
 }
 
 -(void)generateData
@@ -79,8 +77,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     
 }
 
-
-- (void)dataTest {
+ - (void)dataTest {
     
     if (self.plotData == nil ) {
         _numberOfPoints = 20;

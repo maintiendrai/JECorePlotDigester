@@ -412,6 +412,9 @@ NSString *const kFinancialPlots = @"Financial Plots";
     [self generateData];
     [self renderInGraphHostingView:_theHostingView withTheme:theme animated:animated];
     [self formatAllGraphs];
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.defaultLayerHostingView.hostedGraph.axisSet;
+    CPTXYAxis *x = axisSet.xAxis;
+    x.axisLabels = nil;
     self.defaultLayerHostingView = _theHostingView;
     
 }

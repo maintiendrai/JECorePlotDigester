@@ -1,1 +1,1 @@
-pod 'CorePlot'
+pod 'CorePlot', '~> 1.6'

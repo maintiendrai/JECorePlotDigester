@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "JESimplePieChart.h"
 #import "JEBarChart.h"
+#import "JESimplePieChart.h"
 #import "JECurvedPlotView.h"
 #import "JEControlChart.h"
 
@@ -41,8 +41,6 @@
     for ( int j = 0; j < count+1; j++ ) {
         [contentArray addObject:@(0)];
     }
-//    [contentArray replaceObjectAtIndex:1 withObject:@(5)];
-//    [contentArray replaceObjectAtIndex:10 withObject:@(100)];
     
     plotItem.plotData = contentArray;
     plotItem.numberOfPoints = 31;

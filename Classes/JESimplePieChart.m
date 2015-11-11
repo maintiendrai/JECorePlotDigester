@@ -108,6 +108,17 @@
     return nil;
 }
 
+-(void)formatAllGraphs
+{
+    [super formatAllGraphs];
+    for (CPTGraph *graph in self.graphs) {
+        graph.paddingLeft = 0.0;
+        graph.paddingTop = 0.0;
+        graph.paddingRight = 0.0;
+        graph.paddingBottom = 0.0;
+    }
+}
+
 #pragma mark -
 #pragma mark CPTPieChartDelegate Methods
 
@@ -194,14 +205,18 @@
 
 - (void)digesterColor {
     self.plotColor = [NSMutableArray array];
-    [self.plotColor addObject:[CPTColor colorWithComponentRed:254/255.0 green:211/255.0 blue:0/255.0 alpha:1]];
-    [self.plotColor addObject:[CPTColor colorWithComponentRed:255/255.0 green:103/255.0 blue:82/255.0 alpha:1]];
-    [self.plotColor addObject:[CPTColor colorWithComponentRed:0/255.0 green:192/255.0 blue:232/255.0 alpha:1]];
-    [self.plotColor addObject:[CPTColor colorWithComponentRed:250/255.0 green:158/255.0 blue:0/255.0 alpha:1]];
-    [self.plotColor addObject:[CPTColor colorWithComponentRed:148/255.0 green:246/255.0 blue:133/255.0 alpha:1]];
-    [self.plotColor addObject:[CPTColor colorWithComponentRed:80/255.0 green:192/255.0 blue:232/255.0 alpha:1]];
-    
-    //    [self.plotColor addObject:[CPTColor colorWithComponentRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0xFF/255.0 green:0x00/255.0 blue:0x33/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0x00/255.0 green:0x66/255.0 blue:0xCC/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0xFF/255.0 green:0x99/255.0 blue:0x00/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0x33/255.0 green:0x99/255.0 blue:0x33/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0xFF/255.0 green:0xFF/255.0 blue:0x00/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0x33/255.0 green:0xCC/255.0 blue:0x99/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0xc7/255.0 green:0x57/255.0 blue:0xf5/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0x00/255.0 green:0x99/255.0 blue:0xCC/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0xFF/255.0 green:0xCC/255.0 blue:0x33/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0x99/255.0 green:0xCC/255.0 blue:0x33/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0xFF/255.0 green:0x99/255.0 blue:0x66/255.0 alpha:1]];
+    [self.plotColor addObject:[CPTColor colorWithComponentRed:0x99/255.0 green:0xCC/255.0 blue:0xCC/255.0 alpha:1]];
 }
 
 

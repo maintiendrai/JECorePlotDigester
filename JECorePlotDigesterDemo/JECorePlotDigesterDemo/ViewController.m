@@ -26,8 +26,8 @@
     [super viewDidLoad];
     
 //    [self testBarChart];
-//    [self testControlChart];
-    [self testSimplePiechart];
+    [self testControlChart];
+//    [self testSimplePiechart];
 
 }
 
@@ -41,6 +41,9 @@
     for ( int j = 0; j < count+1; j++ ) {
         [contentArray addObject:@(0)];
     }
+    
+    [contentArray replaceObjectAtIndex:5 withObject:@(20)];
+    [contentArray replaceObjectAtIndex:7 withObject:@(10)];
     
     plotItem.plotData = contentArray;
     plotItem.numberOfPoints = 31;

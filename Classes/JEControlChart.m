@@ -77,7 +77,8 @@ static NSString *const kDataLine1    = @"Data Line1";
     
 }
 
- - (void)dataTest {
+
+- (void)dataTest {
     
     if (self.plotData == nil ) {
         _numberOfPoints = 20;
@@ -141,7 +142,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     graph.plotAreaFrame.masksToBorder = NO;
     
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
-    lineStyle.lineWidth          = 2.0;
+    lineStyle.lineWidth          = 1.0;
     lineStyle.lineColor          = _plotColor;
     
     
@@ -150,7 +151,7 @@ static NSString *const kDataLine1    = @"Data Line1";
     linePlot.identifier = kDataLine;
     
     linePlot.dataLineStyle = lineStyle;
-    linePlot.interpolation = CPTScatterPlotInterpolationCurved; //curve
+    //    linePlot.interpolation = CPTScatterPlotInterpolationCurved; //curve
     
     
     linePlot.dataSource = self;
@@ -161,9 +162,9 @@ static NSString *const kDataLine1    = @"Data Line1";
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     [plotSpace scaleToFitPlots:@[linePlot]];
     
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.65) length:CPTDecimalFromFloat(self.numberOfPoints-0.5)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.7) length:CPTDecimalFromFloat(self.numberOfPoints-0.5)];
     
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-0.5) length:CPTDecimalFromFloat(self.toplevel+5)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-0.4) length:CPTDecimalFromFloat(self.toplevel==0 ? 20 : self.toplevel+5)];
     
     // Grid line styles
     CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
@@ -192,9 +193,11 @@ static NSString *const kDataLine1    = @"Data Line1";
     x.minorGridLineStyle = minorGridLineStyle;
     x.labelFormatter     = labelFormatter;
     x.labelTextStyle     = titleStyle;
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"-0.1");
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"-0.375");
     x.minorTicksPerInterval = 0;//sub scale
     x.preferredNumberOfMajorTicks = 8;
+    x.labelOffset = 0;
+    x.majorTickLength = 0;
     x.axisLineStyle               = nil;
     x.majorTickLineStyle          = nil;
     x.minorTickLineStyle          = nil;
@@ -206,26 +209,27 @@ static NSString *const kDataLine1    = @"Data Line1";
     y.minorGridLineStyle = minorGridLineStyle;
     y.labelFormatter     = labelFormatter;
     y.labelTextStyle     = titleStyle;
+    y.labelOffset        = 0;
     y.minorTicksPerInterval = 0;//sub scale
     y.preferredNumberOfMajorTicks = 3;
-    y.majorTickLength = 15;
+    y.majorTickLength = 0.5;
     y.axisLineStyle               = nil;
     y.majorTickLineStyle          = nil;
     y.minorTickLineStyle          = nil;
-    y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(2.0);
+    y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0.7);
     
     
     // plotData 1 modify
     if (plotData1) {
         
         CPTMutableLineStyle *lineStyle1 = [CPTMutableLineStyle lineStyle];
-        lineStyle1.lineWidth          = 2.0;
+        lineStyle1.lineWidth          = 1.0;
         lineStyle1.lineColor          = _plotColor1;
         
         CPTScatterPlot *linePlot1 = [[CPTScatterPlot alloc] init];
         linePlot1.identifier = kDataLine1;
         linePlot1.dataLineStyle = lineStyle1;
-        linePlot1.interpolation = CPTScatterPlotInterpolationCurved; //曲线
+        //        linePlot1.interpolation = CPTScatterPlotInterpolationCurved; //曲线
         linePlot1.dataSource = self;
         [graph addPlot:linePlot1];
         
